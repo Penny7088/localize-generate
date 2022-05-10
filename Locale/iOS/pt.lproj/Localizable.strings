@@ -1,0 +1,173 @@
+//Empty
+"Back to homepage"="Voltar a página inicial";
+//【直播语聊落地页】头部直播/语聊tab（待商榷，Vivian可以和Michael讨论英文用词）
+"Live top tab"="Evento ao vivo";
+//Empty
+"Voice top tab"="Voz";
+//【底部tab】名字 （待商榷，Vivian可以和Michael讨论英文用词）
+"Live bottom tab"="Live";
+//【观众看主播视角资料卡】右上角举报
+"Report（历史已有）"="Reportar";
+//【资料卡】自我介绍
+"Bio (历史已有)"="Biografia";
+//【资料卡】进入主页按钮
+"Visit profile"="Visitar perfil";
+//【资料卡】关注按钮
+"Follow（历史已有）"="Seguir";
+//【资料卡】关注后toast
+"Already followed（历史已有）"="Você seguiu o anfitrião";
+//【主播/助手看观众资料卡】视角，多一个移出房间
+"Remove user"="Remover";
+//举报后，toast提示，同样可用于资料卡举报后
+"Thank you for your report（历史已有）"="Obrigado pelo seu informe";
+//【观众-直播结束弹窗】：直播结束
+"Live session ended toast（历史已有）"="Este evento ao vivo terminou";
+//关注按钮
+"Follow the host live"="Seguir o anfitrião";
+//已关注按钮
+"Following（历史已有）"="Seguindo";
+//离开按钮
+"Leave（历史已有）"="Sim";
+//主播开播后-通知关注的人
+"Someone starts live"="%@ começou um evento ao vivo";
+//ht live官方号推送按钮
+"Join the live stream（历史已有）"="Junte-se ao evento ao vivo";
+//移出房间的观众无法再次加入同一场直播toast提示
+"Cant join the live"="Você não pode voltar ao evento ao vivo!";
+//主播开启字幕失败toast提示
+"Failed turn on caption"="Falha ao ativar as legendas. Por favor tente novamente.";
+//主播关闭字幕失败toast提示
+"Failed turn off caption"="Falha ao desativar as legendas. Por favor tente novamente.";
+//主播开启举手功能失败toast提示
+"Invitation open failed"="Falha ao abrir o convite. Por favor tente novamente.";
+//主播关闭举手功能失败toast提示
+"Invitation close failed"="Falha ao fechar o convite. Por favor tente novamente.";
+//Empty
+"No live event now"="Nenhum evento ao vivo disponível agora!";
+//当前没有在播的且用户可见的语聊房
+"No voice room now"="Nenhuma Sala de Voz disponível agora!";
+//语聊房结束后，用户看到的提示的弹窗
+"Voice rm closed（历史已有）"="A Sala de Voz está fechada";
+//语聊房结束后，用户看到的提示的弹窗
+"Follow host voice room（修改土耳其文案）"="Siga o anfitrião";
+//直播
+"Be Vip（补充多语言文案）"="SEJA VIP";
+//直播
+"Upgrade to Pro Member （历史已有）"="Esta funcionalidade está disponível apenas para contas VIP. Mude agora para uma conta VIP.";
+//直播
+"Host not turned on function"="O anfitrião não ativou essa função.";
+//Empty
+"Followed Success"="Seguido com sucesso";
+//关注主播按钮
+"web key（多语言用65行）"="Seguir o anfitrião";
+//关注后toast提示
+"web key（有多语言）"="Você seguiu o anfitrião";
+//web端直播间-礼物消息固定文案“送主播”
+"web key (多语言和移动端录入451已完成)"="Enviado para o anfitrião";
+//主播开启字幕失败toast提示
+"web key"="Falha ao ativar as legendas. Por favor tente novamente.";
+//主播关闭字幕失败toast提示
+"web key"="Falha ao desativar as legendas. Por favor tente novamente.";
+//主播开启举手功能失败toast提示
+"web key"="Falha ao abrir o convite. Por favor tente novamente.";
+//主播关闭举手功能失败toast提示
+"web key"="Falha ao fechar o convite. Por favor tente novamente.";
+//【web】主播分享文件时显示
+"web key"="Compartilhando...";
+//Empty
+"My Education"="Minha escola";
+//触发敏感词弹出提示文案
+"Can't save and revise"="Unable to save, probably because it contains dating, political, or other content that violates HelloTalk regulations. Plese revise it and try to save again.";
+//用户关注的用户开的语聊房
+"My Follow"="My following";
+//用户在语聊房发起房间举报
+"Report"="Report";
+//用户在语聊房发起房间举报
+"Report reason"="Reason";
+//用户在语聊房发起房间举报
+"Liar or ask for money"="Attempted/committed fraud";
+//用户在语聊房发起房间举报
+"Fake personal information"="Provided fake information";
+//用户在语聊房发起房间举报
+"Pornography"="Sent sexual content";
+//用户在语聊房发起房间举报
+"Looking for dates or harassment"="Used the app for dating purposes";
+//用户在语聊房发起房间举报
+"Abusive language"="Used abusive language";
+//用户在语聊房发起房间举报
+"Spam"="Sent spam";
+//用户在语聊房发起房间举报
+"Religion/Politics"="Sent religious/political content";
+//用户在语聊房发起房间举报
+"Other"="Other";
+//用户在语聊房发起房间举报
+"Describe report reason"="What will you talk about it？";
+//用户在语聊房发起房间举报
+"Submit"="Submit";
+//用户在语聊房发起房间举报
+"Thank you for your report"="Thank you for your report";
+//用户在语聊房发起房间举报
+"Report too frequent"="Reported too frequently, please try again later";
+//用户在语聊房发起房间举报
+"Report failed"="Report failed";
+//用户点击下麦时弹出，避免误操作的不良后果
+"Leave stage raise hand again"="Do you want to leave the stage? You need to raise your hand again to return to the stage.";
+//用户点击下麦时弹出，避免误操作的不良后果
+"Cancel"="Cancel";
+//用户点击下麦时弹出，避免误操作的不良后果
+"Yes"="Yes";
+//用户点击语聊房右上角按钮后弹出
+"Minimize window"="Minimize the window";
+//用户点击语聊房右上角按钮后弹出
+"Leave the room"="Leave the room";
+//用户点击下麦时弹出，避免误操作的不良后果
+"Cancel"="Cancel";
+//用户点击语聊房右上角按钮后弹出
+"Minimize window"="Minimize the window";
+//房主点击语聊房右上角按钮后弹出
+"Close voice rm"="Close";
+//用户点击下麦时弹出，避免误操作的不良后果
+"Cancel"="Cancel";
+//赞的通知TAB名称修改为：赞/收藏
+"Likes n Favorites"="Likes/Favorites";
+//
+XXX收藏了你的贴文
+"Someone favorite your post"="added your post to favorites";
+//点击更多按钮打开一个话题集合页
+"More"="More";
+//点击更多按钮打开一个话题集合页
+"More"="More";
+//语伴-认真学习页面改造，聊天按钮
+"Start chatting"="Start chatting";
+//允许官方推荐群组的开关
+"Allow recommendation"="Allow for recommendation";
+//用户在聊天列表页操作下拉
+"Pull to Refresh"="Pull to Refresh...";
+//Empty
+"Pull enter course"="Pull down more to access courses";
+//Empty
+"Release to Refresh"="Release to Refresh...";
+//个人Profile页曝光推荐的课程入口
+"Recommended courses"="Recommended courses";
+//Empty
+"Hellonative"="HelloNative";
+//Empty
+"Native lingual partner"="Native language partner";
+//Empty
+"Live class"="Live Class";
+//Empty
+"Live learning"="Interactive live lessons";
+//Empty
+"Audio video"="Audio&Video";
+//Empty
+"Listen you want"="Listen to what you want";
+//Empty
+"Hellowords"="Vocabulary";
+//Empty
+"Game like learning"="Game-like vocab learning";
+//Empty
+"English times"="Reading";
+//Empty
+"More reading"="More reading resources";
+//安卓 聊天列表入口
+"See who's online"="See who's online";

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--用户点击语聊房右上角按钮后弹出 -->
+    <string name="minimize_window">تصغير النافذة</string>
+    <!--用户点击语聊房右上角按钮后弹出 -->
+    <string name="leave_the_room">مغادرة الغرفة</string>
+    <!--用户点击语聊房右上角按钮后弹出 -->
+    <string name="cancel">إلغاء</string>
+    <!--房主点击语聊房右上角按钮后弹出 -->
+    <string name="minimize_window">تصغير النافذة</string>
+    <!--房主点击语聊房右上角按钮后弹出 -->
+    <string name="close_voice_rm">غلق</string>
+    <!--房主点击语聊房右上角按钮后弹出 -->
+    <string name="cancel">إلغاء</string>
+    <!--赞的通知TAB名称修改为：赞/收藏 -->
+    <string name="likes_n_favorites">الإعجابات أو المفضلات</string>
+    <!--
+XXX收藏了你的贴文 -->
+    <string name="someone_favorite_your_post">قام بإضافة منشورك إلى أشيائه المفضلة!</string>
+    <!--点击更多按钮打开一个话题集合页 -->
+    <string name="more">المزيد</string>
+    <!--点击更多按钮打开一个话题集合页 -->
+    <string name="more">المزيد</string>
+    <!--语伴-认真学习页面改造，聊天按钮 -->
+    <string name="start_chatting">ابدأ الدردشة</string>
+    <!--允许官方推荐群组的开关 -->
+    <string name="allow_recommendation">توصيات المجموعة</string>
+    <!--用户在聊天列表页操作下拉 -->
+    <string name="pull_to_refresh">اسحب للتحديث...</string>
+    <!--Empty -->
+    <string name="pull_enter_course">اسحب لأسفل أكثر للوصول إلى الدورات</string>
+    <!--Empty -->
+    <string name="release_to_refresh">ارفع يدك للتحديث...</string>
+    <!--个人Profile页曝光推荐的课程入口 -->
+    <string name="recommended_courses">الدورات المقترحة</string>
+    <!--Empty -->
+    <string name="native_lingual_partner">متحدث أصلي شريكًا للغة</string>
+    <!--Empty -->
+    <string name="live_learning">بث مباشر تفاعلي للدروس</string>
+    <!--Empty -->
+    <string name="audio_video">الصوت والفيديو</string>
+    <!--Empty -->
+    <string name="listen_you_want">استمع لما تحب!</string>
+    <!--Empty -->
+    <string name="hellowords">كلمات</string>
+    <!--Empty -->
+    <string name="game_like_learning">لعبة تعلم الكلمات</string>
+    <!--Empty -->
+    <string name="english_times">قراءة</string>
+    <!--Empty -->
+    <string name="more_reading">المزيد من مصادر القراءة</string>
+    <!--安卓 聊天列表入口 -->
+    <string name="see_whos_online">تحقق من المتصل</string>
+    <!--Empty -->
+    <string name="back_to_homepage">الرجوع إلى الصفحة الرئيسية</string>
+    <!--【直播语聊落地页】头部直播/语聊tab（待商榷，Vivian可以和Michael讨论英文用词） -->
+    <string name="live_top_tab">بث مباشر</string>
+    <!--Empty -->
+    <string name="voice_top_tab">غرفة الصوت</string>
+    <!--【底部tab】名字 （待商榷，Vivian可以和Michael讨论英文用词） -->
+    <string name="live_bottom_tab">بث مباشر</string>
+    <!--【观众看主播视角资料卡】右上角举报 -->
+    <string name="report（历史已有）">بلغ</string>
+    <!--【资料卡】自我介绍 -->
+    <string name="bio_(历史已有)">سيرة</string>
+    <!--【资料卡】进入主页按钮 -->
+    <string name="visit_profile">زيارة الصفحة</string>
+    <!--【资料卡】关注按钮 -->
+    <string name="follow（历史已有）">تابِع</string>
+    <!--【资料卡】关注后toast -->
+    <string name="already_followed（历史已有）">لقد قمت بمتابعة المضيف</string>
+    <!--【主播/助手看观众资料卡】视角，多一个移出房间 -->
+    <string name="remove_user">حذف</string>
+    <!--举报后，toast提示，同样可用于资料卡举报后 -->
+    <string name="thank_you_for_your_report（历史已有）">شكرا لتقريرك</string>
+    <!--【观众-直播结束弹窗】：直播结束 -->
+    <string name="live_session_ended_toast（历史已有）">لقد انتهى هذا البث المباشر</string>
+    <!--关注按钮 -->
+    <string name="follow_the_host_live">متابعة المضيف</string>
+    <!--已关注按钮 -->
+    <string name="following（历史已有）">متابَعون</string>
+    <!--离开按钮 -->
+    <string name="leave（历史已有）">نعم</string>
+    <!--主播开播后-通知关注的人 -->
+    <string name="someone_starts_live">بدأ %؜@ بث مباشر</string>
+    <!--ht live官方号推送按钮 -->
+    <string name="join_the_live_stream（历史已有）">انضم إلي البث المباشر الآن</string>
+    <!--移出房间的观众无法再次加入同一场直播toast提示 -->
+    <string name="cant_join_the_live">لا يمكنك الانضمام إلى البث المباشر مرة أخرى!</string>
+    <!--主播开启字幕失败toast提示 -->
+    <string name="failed_turn_on_caption">فشل في تشغيل التسميات التوضيحية. الرجاء المحاولة مرة أخرى.</string>
+    <!--主播关闭字幕失败toast提示 -->
+    <string name="failed_turn_off_caption">فشل في إيقاف التسميات التوضيحية. الرجاء المحاولة مرة أخرى.</string>
+    <!--主播开启举手功能失败toast提示 -->
+    <string name="invitation_open_failed">فشل في فتح الدعوات. الرجاء المحاولة مرة أخرى.</string>
+    <!--主播关闭举手功能失败toast提示 -->
+    <string name="invitation_close_failed">فشل في اغلاق الدعوة. الرجاء المحاولة مرة أخرى.</string>
+    <!--Empty -->
+    <string name="no_live_event_now">ليس هناك أي بث مباشر متاح الآن.</string>
+    <!--当前没有在播的且用户可见的语聊房 -->
+    <string name="no_voice_room_now">ليس هناك أي غرف صوتية متاحة الآن.</string>
+    <!--语聊房结束后，用户看到的提示的弹窗 -->
+    <string name="voice_rm_closed（历史已有）">غرفة الصوت مغلقة</string>
+    <!--语聊房结束后，用户看到的提示的弹窗 -->
+    <string name="follow_host_voice_room（修改土耳其文案）">متابعة المضيف</string>
+    <!--直播 -->
+    <string name="be_vip（补充多语言文案）">انطلق الى VIP</string>
+    <!--直播 -->
+    <string name="upgrade_to_pro_member_（历史已有）">هذا هو VIP الميزات الحصرية، الترقية إلى VIP</string>
+    <!--直播 -->
+    <string name="host_not_turned_on_function">لم يقم المضيف بتفعيل هذه الخاصية.</string>
+    <!--Empty -->
+    <string name="followed_success">تم المتابعة بنجاح</string>
+    <!--关注主播按钮 -->
+    <string name="web_key（多语言用65行）">متابعة المضيف</string>
+    <!--关注后toast提示 -->
+    <string name="web_key（有多语言）">لقد قمت بمتابعة المضيف</string>
+    <!--web端直播间-礼物消息固定文案“送主播” -->
+    <string name="web_key_(多语言和移动端录入451已完成)">أرسل إلى المضيف</string>
+    <!--主播开启字幕失败toast提示 -->
+    <string name="web_key">فشل في تشغيل التسميات التوضيحية. الرجاء المحاولة مرة أخرى.</string>
+    <!--主播关闭字幕失败toast提示 -->
+    <string name="web_key">فشل في إيقاف التسميات التوضيحية. الرجاء المحاولة مرة أخرى.</string>
+    <!--主播开启举手功能失败toast提示 -->
+    <string name="web_key">فشل في فتح الدعوات. الرجاء المحاولة مرة أخرى.</string>
+    <!--主播关闭举手功能失败toast提示 -->
+    <string name="web_key">فشل في اغلاق الدعوة. الرجاء المحاولة مرة أخرى.</string>
+    <!--【web】主播分享文件时显示 -->
+    <string name="web_key">قيد مشاركة</string>
+    <!--Empty -->
+    <string name="my_education">مدرستي</string>
+    <!--触发敏感词弹出提示文案 -->
+    <string name="Can't save and revise">##NO VALUE##</string>
+    <!--用户关注的用户开的语聊房 -->
+    <string name="My Follow">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Report">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Report reason">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Liar or ask for money">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Fake personal information">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Pornography">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Looking for dates or harassment">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Abusive language">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Spam">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Religion/Politics">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Other">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Describe report reason">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Submit">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Thank you for your report">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Report too frequent">##NO VALUE##</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="Report failed">##NO VALUE##</string>
+    <!--用户点击下麦时弹出，避免误操作的不良后果 -->
+    <string name="Leave stage raise hand again">##NO VALUE##</string>
+    <!--用户点击下麦时弹出，避免误操作的不良后果 -->
+    <string name="Cancel">##NO VALUE##</string>
+    <!--用户点击下麦时弹出，避免误操作的不良后果 -->
+    <string name="Yes">##NO VALUE##</string>
+    <!--Empty -->
+    <string name="Hellonative">##NO VALUE##</string>
+    <!--Empty -->
+    <string name="Live class">##NO VALUE##</string>
+</resources>

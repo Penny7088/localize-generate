@@ -1,0 +1,13 @@
+*.class
+
+
+# Package Files #
+
+.idea/
+test/
+target/
+*.war
+
+*.ear
+
+*.iml

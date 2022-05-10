@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--触发敏感词弹出提示文案 -->
+    <string name="cant_save_and_revise">Impossibile salvare, probabilmente a causa di contenuti sessuali, politici o religiosi, bullismo, spam o qualsiasi altro contenuto che viola le regole della piattaforma. Si prega di ricontrollare e provare a salvare nuovamente.</string>
+    <!--用户关注的用户开的语聊房 -->
+    <string name="my_follow">Chi seguo</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="report">Segnala</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="report_reason">Motivo</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="liar_or_ask_for_money">Tentativo/frode commessa</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="fake_personal_information">Fornito informazioni false</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="pornography">Contenuto sessuale inviato</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="looking_for_dates_or_harassment">L\'app usato per appuntamenti</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="abusive_language">Linguaggio offensivo usato</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="spam">Spam inviato</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="religion/politics">Inviati contenuti religiosi/politici</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="other">Altro</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="describe_report_reason">Descrivi il motivo</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="submit">Inserisci</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="thank_you_for_your_report">Grazie per il resoconto</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="report_too_frequent">Segnalato troppo frequentemente. Si prega di provare più tardi.</string>
+    <!--用户在语聊房发起房间举报 -->
+    <string name="report_failed">Segnalazione fallita</string>
+    <!--用户点击下麦时弹出，避免误操作的不良后果 -->
+    <string name="leave_stage_raise_hand_again">Devi alzare di nuovo la mano per tornare sul palco. Vuoi lasciare il palco?</string>
+    <!--用户点击下麦时弹出，避免误操作的不良后果 -->
+    <string name="cancel">Annulla</string>
+    <!--用户点击下麦时弹出，避免误操作的不良后果 -->
+    <string name="yes">Sì</string>
+    <!--用户点击语聊房右上角按钮后弹出 -->
+    <string name="minimize_window">Riduci la finestra</string>
+    <!--用户点击语聊房右上角按钮后弹出 -->
+    <string name="leave_the_room">Lascia la stanza</string>
+    <!--用户点击语聊房右上角按钮后弹出 -->
+    <string name="cancel">Annulla</string>
+    <!--房主点击语聊房右上角按钮后弹出 -->
+    <string name="minimize_window">Riduci la finestra</string>
+    <!--房主点击语聊房右上角按钮后弹出 -->
+    <string name="close_voice_rm">Chiudi</string>
+    <!--房主点击语聊房右上角按钮后弹出 -->
+    <string name="cancel">Annulla</string>
+    <!--赞的通知TAB名称修改为：赞/收藏 -->
+    <string name="likes_n_favorites">Mi piace/Preferiti</string>
+    <!--
+XXX收藏了你的贴文 -->
+    <string name="someone_favorite_your_post">ha aggiunto il tuo post ai suoi preferiti!</string>
+    <!--点击更多按钮打开一个话题集合页 -->
+    <string name="more">Altro</string>
+    <!--点击更多按钮打开一个话题集合页 -->
+    <string name="more">Altro</string>
+    <!--语伴-认真学习页面改造，聊天按钮 -->
+    <string name="start_chatting">Inizia a chattare</string>
+    <!--允许官方推荐群组的开关 -->
+    <string name="allow_recommendation">Raccomandazioni gruppo</string>
+    <!--用户在聊天列表页操作下拉 -->
+    <string name="pull_to_refresh">Tira per ricaricare…</string>
+    <!--Empty -->
+    <string name="pull_enter_course">Scorri di più per accedere ai corsi</string>
+    <!--Empty -->
+    <string name="release_to_refresh">Rilascia per Ricaricare...</string>
+    <!--个人Profile页曝光推荐的课程入口 -->
+    <string name="recommended_courses">Corsi raccomandati</string>
+    <!--Empty -->
+    <string name="native_lingual_partner">Partner madrelingua</string>
+    <!--Empty -->
+    <string name="live_learning">Lezioni live interattive</string>
+    <!--Empty -->
+    <string name="audio_video">Audio &amp; Video</string>
+    <!--Empty -->
+    <string name="listen_you_want">Ascolta ciò che ti piace!</string>
+    <!--Empty -->
+    <string name="hellowords">Vocabolario</string>
+    <!--Empty -->
+    <string name="game_like_learning">Apprendi i vocaboli come per gioco</string>
+    <!--Empty -->
+    <string name="english_times">Lettura</string>
+    <!--Empty -->
+    <string name="more_reading">Più risorse per la lettura</string>
+    <!--安卓 聊天列表入口 -->
+    <string name="see_whos_online">Vedi chi è online</string>
+    <!--Empty -->
+    <string name="back_to_homepage">Torna alla pagina iniziale</string>
+    <!--【直播语聊落地页】头部直播/语聊tab（待商榷，Vivian可以和Michael讨论英文用词） -->
+    <string name="live_top_tab">Streams</string>
+    <!--Empty -->
+    <string name="voice_top_tab">Vocale</string>
+    <!--【底部tab】名字 （待商榷，Vivian可以和Michael讨论英文用词） -->
+    <string name="live_bottom_tab">Live</string>
+    <!--【观众看主播视角资料卡】右上角举报 -->
+    <string name="report（历史已有）">Segnala</string>
+    <!--【资料卡】自我介绍 -->
+    <string name="bio_(历史已有)">Biografia</string>
+    <!--【资料卡】进入主页按钮 -->
+    <string name="visit_profile">Visita profilo</string>
+    <!--【资料卡】关注按钮 -->
+    <string name="follow（历史已有）">Seguire</string>
+    <!--【资料卡】关注后toast -->
+    <string name="already_followed（历史已有）">Hai seguito l\'host</string>
+    <!--【主播/助手看观众资料卡】视角，多一个移出房间 -->
+    <string name="remove_user">Rimuovi</string>
+    <!--举报后，toast提示，同样可用于资料卡举报后 -->
+    <string name="thank_you_for_your_report（历史已有）">Grazie per il resoconto</string>
+    <!--【观众-直播结束弹窗】：直播结束 -->
+    <string name="live_session_ended_toast（历史已有）">Questo evento live è terminato</string>
+    <!--关注按钮 -->
+    <string name="follow_the_host_live">Segui l\'host</string>
+    <!--已关注按钮 -->
+    <string name="following（历史已有）">Seguiti</string>
+    <!--离开按钮 -->
+    <string name="leave（历史已有）">Si</string>
+    <!--主播开播后-通知关注的人 -->
+    <string name="someone_starts_live">%@ ha iniziato un evento live!</string>
+    <!--ht live官方号推送按钮 -->
+    <string name="join_the_live_stream（历史已有）">Unisciti all\'evento live</string>
+    <!--移出房间的观众无法再次加入同一场直播toast提示 -->
+    <string name="cant_join_the_live">Non puoi rientrare nell\'evento live!</string>
+    <!--主播开启字幕失败toast提示 -->
+    <string name="failed_turn_on_caption">Attivazioe sottotitoli fallita. Si prega di riprovare.</string>
+    <!--主播关闭字幕失败toast提示 -->
+    <string name="failed_turn_off_caption">Disattivazione sottotitoli fallita. Si prega di riprovare.</string>
+    <!--主播开启举手功能失败toast提示 -->
+    <string name="invitation_open_failed">Impossibile aprire l\'invito. Si prega di riprovare.</string>
+    <!--主播关闭举手功能失败toast提示 -->
+    <string name="invitation_close_failed">Impossibile chiudere l\'invito. Si prega di riprovare.</string>
+    <!--Empty -->
+    <string name="no_live_event_now">Nessun evento live disponibile al momento!</string>
+    <!--当前没有在播的且用户可见的语聊房 -->
+    <string name="no_voice_room_now">Nessuna Stanza Vocale disponibile al momento!</string>
+    <!--语聊房结束后，用户看到的提示的弹窗 -->
+    <string name="voice_rm_closed（历史已有）">La Stanza Vocale è chiusa</string>
+    <!--语聊房结束后，用户看到的提示的弹窗 -->
+    <string name="follow_host_voice_room（修改土耳其文案）">Segui l\'host</string>
+    <!--直播 -->
+    <string name="be_vip（补充多语言文案）">DIVENTA VIP</string>
+    <!--直播 -->
+    <string name="upgrade_to_pro_member_（历史已有）">Si tratta di VIP caratteristiche esclusive, l\'aggiornamento a VIP</string>
+    <!--直播 -->
+    <string name="host_not_turned_on_function">L\'host non ha attivato questa funzione.</string>
+    <!--Empty -->
+    <string name="followed_success">Seguito con successo</string>
+    <!--关注主播按钮 -->
+    <string name="web_key（多语言用65行）">Segui l\'host</string>
+    <!--关注后toast提示 -->
+    <string name="web_key（有多语言）">Hai seguito l\'host</string>
+    <!--web端直播间-礼物消息固定文案“送主播” -->
+    <string name="web_key_(多语言和移动端录入451已完成)">Inviato a host</string>
+    <!--主播开启字幕失败toast提示 -->
+    <string name="web_key">Attivazioe sottotitoli fallita. Si prega di riprovare.</string>
+    <!--主播关闭字幕失败toast提示 -->
+    <string name="web_key">Disattivazione sottotitoli fallita. Si prega di riprovare.</string>
+    <!--主播开启举手功能失败toast提示 -->
+    <string name="web_key">Impossibile aprire l\'invito. Si prega di riprovare.</string>
+    <!--主播关闭举手功能失败toast提示 -->
+    <string name="web_key">Impossibile chiudere l\'invito. Si prega di riprovare.</string>
+    <!--【web】主播分享文件时显示 -->
+    <string name="web_key">Condivisione...</string>
+    <!--Empty -->
+    <string name="my_education">La mia scuola</string>
+    <!--Empty -->
+    <string name="Hellonative">##NO VALUE##</string>
+    <!--Empty -->
+    <string name="Live class">##NO VALUE##</string>
+</resources>

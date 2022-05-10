@@ -1,0 +1,173 @@
+//用户点击语聊房右上角按钮后弹出
+"Minimize window"="Pencereyi küçült";
+//用户点击语聊房右上角按钮后弹出
+"Leave the room"="odayı terk et";
+//用户点击语聊房右上角按钮后弹出
+"Cancel"="İptal";
+//房主点击语聊房右上角按钮后弹出
+"Minimize window"="Pencereyi küçült";
+//房主点击语聊房右上角按钮后弹出
+"Close voice rm"="Kapat";
+//房主点击语聊房右上角按钮后弹出
+"Cancel"="İptal";
+//赞的通知TAB名称修改为：赞/收藏
+"Likes n Favorites"="Beğeniler/Favoriler";
+//
+XXX收藏了你的贴文
+"Someone favorite your post"="Gönderini favorilerine ekledi!";
+//点击更多按钮打开一个话题集合页
+"More"="Fazlası";
+//点击更多按钮打开一个话题集合页
+"More"="Fazlası";
+//语伴-认真学习页面改造，聊天按钮
+"Start chatting"="Sohbeti başlat";
+//允许官方推荐群组的开关
+"Allow recommendation"="Grup önerileri";
+//用户在聊天列表页操作下拉
+"Pull to Refresh"="Yenilemek için çekin…";
+//Empty
+"Pull enter course"="Daha fazla Kurs için aşağıya in";
+//Empty
+"Release to Refresh"="Yenilemek için bırakın…";
+//个人Profile页曝光推荐的课程入口
+"Recommended courses"="Önerilen kurslar";
+//Empty
+"Native lingual partner"="Ana dil partneri";
+//Empty
+"Live learning"="Etkileşimli canlı dersler";
+//Empty
+"Audio video"="Ses ve Vıdeo";
+//Empty
+"Listen you want"="Ne istersen onu dinle!";
+//Empty
+"Hellowords"="Kelime bilgisi";
+//Empty
+"Game like learning"="Oyun gibi  kelime öğrenme";
+//Empty
+"English times"="Okuma";
+//Empty
+"More reading"="Daha fazla okuma kaynağı";
+//安卓 聊天列表入口
+"See who's online"="Kimin çevrimiçi olduğunu gör";
+//Empty
+"Back to homepage"="Ana sayfaya dön";
+//【直播语聊落地页】头部直播/语聊tab（待商榷，Vivian可以和Michael讨论英文用词）
+"Live top tab"="Yayınlar";
+//Empty
+"Voice top tab"="Ses";
+//【底部tab】名字 （待商榷，Vivian可以和Michael讨论英文用词）
+"Live bottom tab"="Canlı";
+//【观众看主播视角资料卡】右上角举报
+"Report（历史已有）"="Bildir";
+//【资料卡】自我介绍
+"Bio (历史已有)"="Biyografi";
+//【资料卡】进入主页按钮
+"Visit profile"="Profili göz at";
+//【资料卡】关注按钮
+"Follow（历史已有）"="Takip Et";
+//【资料卡】关注后toast
+"Already followed（历史已有）"="Sunucuyu takip ettin";
+//【主播/助手看观众资料卡】视角，多一个移出房间
+"Remove user"="Kaldır";
+//举报后，toast提示，同样可用于资料卡举报后
+"Thank you for your report（历史已有）"="Şikayet ettiğiniz için teşekkür ederiz";
+//【观众-直播结束弹窗】：直播结束
+"Live session ended toast（历史已有）"="Bu canlı etkinlik sona erdi";
+//关注按钮
+"Follow the host live"="Sunucuyu takip et";
+//已关注按钮
+"Following（历史已有）"="Takip Edilen";
+//离开按钮
+"Leave（历史已有）"="Evet";
+//主播开播后-通知关注的人
+"Someone starts live"="%@ canlı bir etkinlik başlattı";
+//ht live官方号推送按钮
+"Join the live stream（历史已有）"="Canlı etkinliğe katıl";
+//移出房间的观众无法再次加入同一场直播toast提示
+"Cant join the live"="Canlı etkinliğe tekrar katılamazsın!";
+//主播开启字幕失败toast提示
+"Failed turn on caption"="Altyazılar açılamadı.  Lütfen tekrar deneyin.";
+//主播关闭字幕失败toast提示
+"Failed turn off caption"="Altyazılar kapatılamadı.  Lütfen tekrar deneyin.";
+//主播开启举手功能失败toast提示
+"Invitation open failed"="Davetiye açılamadı. Lütfen tekrar deneyin.";
+//主播关闭举手功能失败toast提示
+"Invitation close failed"="Davetiye kapatılamadı. Lütfen tekrar deneyin.";
+//Empty
+"No live event now"="Şu anda mevcut canlı etkinlik yok!";
+//当前没有在播的且用户可见的语聊房
+"No voice room now"="Şu anda mevcut Sesli Konuşma Odası yok!";
+//语聊房结束后，用户看到的提示的弹窗
+"Voice rm closed（历史已有）"="Sesli Konuşma Odası kapandı";
+//语聊房结束后，用户看到的提示的弹窗
+"Follow host voice room（修改土耳其文案）"="Sunucuyu takip et.Sunucuyu takip et";
+//直播
+"Be Vip（补充多语言文案）"="VIP OL";
+//直播
+"Upgrade to Pro Member （历史已有）"="Bu VIP fonksiyonudur, VIP yükseltme";
+//直播
+"Host not turned on function"="Sunucu bu işlevi etkinleştirmedi.";
+//Empty
+"Followed Success"="Takip etme başarılı";
+//关注主播按钮
+"web key（多语言用65行）"="Sunucuyu takip et";
+//关注后toast提示
+"web key（有多语言）"="Sunucuyu takip ettin";
+//web端直播间-礼物消息固定文案“送主播”
+"web key (多语言和移动端录入451已完成)"="Sunucuya gönderildi";
+//主播开启字幕失败toast提示
+"web key"="Altyazılar açılamadı.  Lütfen tekrar deneyin.";
+//主播关闭字幕失败toast提示
+"web key"="Altyazılar kapatılamadı.  Lütfen tekrar deneyin.";
+//主播开启举手功能失败toast提示
+"web key"="Davetiye açılamadı. Lütfen tekrar deneyin.";
+//主播关闭举手功能失败toast提示
+"web key"="Davetiye kapatılamadı. Lütfen tekrar deneyin.";
+//【web】主播分享文件时显示
+"web key"="Paylaşılıyor...";
+//Empty
+"My Education"="Benim okulum";
+//触发敏感词弹出提示文案
+"Can't save and revise"="Unable to save, probably because it contains dating, political, or other content that violates HelloTalk regulations. Plese revise it and try to save again.";
+//用户关注的用户开的语聊房
+"My Follow"="My following";
+//用户在语聊房发起房间举报
+"Report"="Report";
+//用户在语聊房发起房间举报
+"Report reason"="Reason";
+//用户在语聊房发起房间举报
+"Liar or ask for money"="Attempted/committed fraud";
+//用户在语聊房发起房间举报
+"Fake personal information"="Provided fake information";
+//用户在语聊房发起房间举报
+"Pornography"="Sent sexual content";
+//用户在语聊房发起房间举报
+"Looking for dates or harassment"="Used the app for dating purposes";
+//用户在语聊房发起房间举报
+"Abusive language"="Used abusive language";
+//用户在语聊房发起房间举报
+"Spam"="Sent spam";
+//用户在语聊房发起房间举报
+"Religion/Politics"="Sent religious/political content";
+//用户在语聊房发起房间举报
+"Other"="Other";
+//用户在语聊房发起房间举报
+"Describe report reason"="What will you talk about it？";
+//用户在语聊房发起房间举报
+"Submit"="Submit";
+//用户在语聊房发起房间举报
+"Thank you for your report"="Thank you for your report";
+//用户在语聊房发起房间举报
+"Report too frequent"="Reported too frequently, please try again later";
+//用户在语聊房发起房间举报
+"Report failed"="Report failed";
+//用户点击下麦时弹出，避免误操作的不良后果
+"Leave stage raise hand again"="Do you want to leave the stage? You need to raise your hand again to return to the stage.";
+//用户点击下麦时弹出，避免误操作的不良后果
+"Cancel"="Cancel";
+//用户点击下麦时弹出，避免误操作的不良后果
+"Yes"="Yes";
+//Empty
+"Hellonative"="HelloNative";
+//Empty
+"Live class"="Live Class";

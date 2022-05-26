@@ -1,7 +1,6 @@
 package org.py.localize.controller;
 
 import com.sun.javafx.stage.StageHelper;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;

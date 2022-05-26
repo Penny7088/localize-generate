@@ -17,7 +17,7 @@
           xmlns:fx="http://javafx.com/fxml/1"
           fx:controller="org.py.localize.controller.DiffRepeatController">
 
-    <Pane prefHeight="140" prefWidth="1215" style="-fx-background-color: #6D89FF">
+    <Pane prefHeight="140" prefWidth="1215" style="-fx-background-color: #6D89FF; -fx-background-radius: 5px">
         <Label fx:id="label" layoutX="10.0" layoutY="10.0" text="导入文件夹" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="40.0"/>

@@ -28,7 +28,6 @@ import javafx.util.Callback;
 import org.py.localize.utils.*;
 import org.py.localize.widget.Progress;
 import org.py.localize.model.RepeatEntity;
-import org.yzr.poi.utils.*;
 import org.py.localize.widget.Toast;
 
 import java.io.File;

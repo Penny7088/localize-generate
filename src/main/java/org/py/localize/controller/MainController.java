@@ -29,7 +29,6 @@ import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import org.py.localize.model.CopyWriteContainer;
 import org.py.localize.utils.*;
-import org.yzr.poi.utils.*;
 import org.py.localize.widget.Button;
 import org.py.localize.model.ButtonState;
 
@@ -57,9 +56,6 @@ public class MainController {
     private Button generateButton;
 
     @FXML
-    private Button generateAnimationConfigButton;
-
-    @FXML
     private Pane maskView;
 
     @FXML
@@ -76,9 +72,6 @@ public class MainController {
 
     @FXML
     private Button closeButton;
-
-    @FXML
-    private Button showLostButton;
 
     @FXML
     private Button repeatButton;
@@ -204,7 +197,7 @@ public class MainController {
                             }
                         }
 
-                        showLostButton.setVisible(lostList.size() > 0);
+//                        showLostButton.setVisible(lostList.size() > 0);
 
                         if (copyWriteContainers.size() > 0) {
                             FileUtils.showInFinder();
@@ -246,25 +239,6 @@ public class MainController {
             }
         });
 
-        generateAnimationConfigButton.setOnMouseClicked(event -> {
-            generateAnimationConfigButton.setDisable(true);
-            maskView.setVisible(true);
-            new Thread(() -> {
-                try {
-                    List<Map<String, Object>> effects = ExcelUtils.read4Effects(filePathLabel.getText());
-                    ExcelUtils.createEffectsFile(effects);
-                    if (effects.size() > 0) {
-                        FileUtils.showInFinder();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                Platform.runLater(() -> {
-                    maskView.setVisible(false);
-                    generateAnimationConfigButton.setDisable(false);
-                });
-            }).start();
-        });
 
         double loadingFitWidth = loading.getImage().getWidth();
         double loadingFitHeight = loading.getImage().getHeight();

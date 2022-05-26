@@ -1,14 +1,11 @@
-package org.yzr.poi.widget;
+package org.py.localize.widget;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import org.yzr.poi.model.ButtonState;
-
-import java.io.File;
-import java.io.FileInputStream;
+import org.py.localize.model.ButtonState;
 
 /**
  * Created by yizhaorong on 2017/3/26.

@@ -1,4 +1,4 @@
-package org.yzr.poi.model;
+package org.py.localize.model;
 
 public class RepeatEntity {
 

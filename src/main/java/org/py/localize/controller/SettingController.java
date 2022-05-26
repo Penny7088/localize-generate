@@ -1,4 +1,4 @@
-package org.yzr.poi.controller;
+package org.py.localize.controller;
 
 import com.sun.javafx.stage.StageHelper;
 import javafx.event.Event;
@@ -11,10 +11,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import org.yzr.poi.model.ButtonState;
-import org.yzr.poi.utils.Constant;
-import org.yzr.poi.utils.PropertiesManager;
-import org.yzr.poi.widget.Button;
+import org.py.localize.model.ButtonState;
+import org.py.localize.utils.Constant;
+import org.py.localize.utils.PropertiesManager;
+import org.py.localize.widget.Button;
 
 /**
  * Created by yizhaorong on 2017/3/26.

@@ -1,4 +1,4 @@
-package org.yzr.poi.model;
+package org.py.localize.model;
 
 /**
  * Created by yizhaorong on 2017/3/26.

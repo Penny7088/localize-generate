@@ -1,4 +1,4 @@
-package org.yzr.poi.main;
+package org.py.localize.main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.yzr.poi.controller.MainController;
-import org.yzr.poi.utils.Constant;
-
-import java.net.URL;
+import org.py.localize.controller.MainController;
 
 public class EasyLocalize extends Application {
 

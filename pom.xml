@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.yzr.poi</groupId>
+    <groupId>org.py.localize</groupId>
     <artifactId>localize</artifactId>
     <version>1.0.0</version>
     <build>
@@ -25,7 +25,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>org.yzr.poi.main.EasyLocalize</mainClass>
+                            <mainClass>org.py.localize.main.EasyLocalize</mainClass>
                             <addClasspath>true</addClasspath>
                         </manifest>
                     </archive>

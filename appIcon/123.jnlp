@@ -10,6 +10,6 @@
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
     <jar href="localize-1.0.0-jar-with-dependencies.jar" size="14916995" download="null" />
   </resources>
-  <jfx:javafx-desc  width="0" height="0" main-class="org.yzr.poi.main.EasyLocalize"  name="Localize" />
+  <jfx:javafx-desc width="0" height="0" main-class="org.py.localize.main.EasyLocalize" name="Localize" />
   <update check="background"/>
 </jnlp>

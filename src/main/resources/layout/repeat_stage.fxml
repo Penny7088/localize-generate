@@ -8,14 +8,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<?import org.yzr.poi.widget.Button?>
+<?import org.py.localize.widget.Button?>
 
 <FlowPane xmlns="http://javafx.com/javafx"
           fx:id="repeatBox"
           prefHeight="764" prefWidth="1215"
           style="-fx-background-color: #F7F8F8; -fx-background-radius: 5px;"
           xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="org.yzr.poi.controller.DiffRepeatController">
+          fx:controller="org.py.localize.controller.DiffRepeatController">
 
     <Pane prefHeight="140" prefWidth="1215" style="-fx-background-color: #6D89FF">
         <Label fx:id="label" layoutX="10.0" layoutY="10.0" text="导入文件夹" textFill="WHITE">

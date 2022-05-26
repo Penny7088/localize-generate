@@ -1,8 +1,7 @@
-package org.yzr.poi.model;
+package org.py.localize.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by yizhaorong on 2017/3/28.

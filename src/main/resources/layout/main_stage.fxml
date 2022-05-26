@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import org.yzr.poi.widget.Button?>
+<?import org.py.localize.widget.Button?>
 
 <FlowPane fx:id="mainPane" prefHeight="764" prefWidth="1215"
           style="-fx-background-color: #6D89FF; -fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/8.0.112"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.yzr.poi.controller.MainController">
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.py.localize.controller.MainController">
     <children>
         <Pane>
             <!--背景-->

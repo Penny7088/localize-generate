@@ -31,6 +31,8 @@ import org.py.localize.model.RepeatEntity;
 import org.py.localize.widget.Toast;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -55,22 +57,15 @@ public class DiffRepeatController {
     @FXML
     private ListView<RepeatEntity> listView;
 
-    private static final String ios_notes = "/*";
-    private static final String android_notes = "<--";
+    private static final String ios_notes = "/* */";
+    private static final String android_notes = "<-- -->";
 
     ObservableList<RepeatEntity> data = FXCollections.observableArrayList(
-            new RepeatEntity("KEY", "Value", "文件路径", "文件名称"),
-            new RepeatEntity("ss", "vv", "/mac", "value-en"),
-            new RepeatEntity("ss", "vv", "/mac", "value-en"),
-            new RepeatEntity("ss", "vv", "/mac", "value-en"),
-            new RepeatEntity("ss", "vv", "/mac", "value-en"),
-            new RepeatEntity("ss", "vv", "/mac", "value-en"),
-            new RepeatEntity("ss", "vv", "/mac", "value-en"),
-            new RepeatEntity("ss", "vv", "/mac", "value-en"),
-            new RepeatEntity("ss", "vv", "/mac", "value-en"));
+            new RepeatEntity("KEY", "Value", "文件路径", "文件名称"));
 
 
     private Progress mProgress;
+    private Disposable disposable;
 
     public void init() {
 
@@ -109,35 +104,45 @@ public class DiffRepeatController {
             @Override
             public void subscribe(ObservableEmitter<RepeatResponse> observableEmitter) throws Exception {
                 RepeatResponse response = new RepeatResponse();
+                ArrayList<RepeatEntity> entities = new ArrayList<>();
                 List<File> files = FileUtils.listFilesInDir(text);
                 if (files == null || files.size() == 0) {
                     observableEmitter.onError(new Throwable("文件夹内为空"));
                 }
-
                 List<File> fileList = FileUtils.listFilesInDirWithFilter(new File(text), ".xml", true);
                 if (fileList.size() == 0) {
                     List<File> ios = FileUtils.listFilesInDirWithFilter(new File(text), ".strings", true);
                     if (ios.size() == 0) {
                         observableEmitter.onError(new Throwable("文件夹内为空"));
                     } else {
-                        parseIOSFile(ios, response);
+                        observableEmitter.onNext(parseIOSFile(ios, response, entities));
                     }
                 } else {
-                    parseAndroidFile(fileList, response);
+                    parseAndroidFile(fileList, response, entities);
                 }
 
 
             }
         });
-        Disposable subscribe = observable.subscribeOn(Schedulers.io())
+        disposable = observable.subscribeOn(Schedulers.io())
                 .subscribe(new Consumer<RepeatResponse>() {
                     @Override
                     public void accept(RepeatResponse repeatResponse) throws Exception {
-
+                        Platform.runLater(() -> {
+                            System.out.println("rsp = " + repeatResponse);
+                            mProgress.cancelProgressBar();
+                            if (repeatResponse.getErrorMsg() != null) {
+                                String message = repeatResponse.getErrorMsg();
+                                Toast.makeText(getRepeatStage(), message);
+                            } else {
+                                data.addAll(repeatResponse.getData());
+                            }
+                        });
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
+                        System.out.println(throwable);
                         Platform.runLater(() -> {
                             String message = throwable.getMessage();
                             Toast.makeText(getRepeatStage(), message);
@@ -149,20 +154,50 @@ public class DiffRepeatController {
 
     }
 
-    private void parseIOSFile(List<File> fileList, RepeatResponse response) {
-        fileList.forEach(new java.util.function.Consumer<File>() {
-            @Override
-            public void accept(File file) {
-                System.out.println(file.getParent());
-                System.out.println(file.getName());
-                System.out.println(file.getAbsolutePath());
-                List<String> stringList = FileIOUtils.readFile2List(file, "utf-8");
-                System.out.println(stringList);
+    private RepeatResponse parseIOSFile(List<File> fileList, RepeatResponse response, ArrayList<RepeatEntity> entities) {
+        fileList.forEach(file -> {
+            System.out.println(file.getAbsolutePath());
+            List<String> stringList = FileIOUtils.readFile2List(file, "utf-8", ios_notes);
+            ArrayList<RepeatEntity> repeatEntities = filterFileContent(stringList, "=", file);
+            if (repeatEntities.size() > 0) {
+                System.out.println(repeatEntities);
+                entities.addAll(repeatEntities);
             }
         });
+
+        if (entities.size() == 0) {
+            response.setErrorMsg("没有重复的值");
+        }
+        response.setData(entities);
+
+        return response;
     }
 
-    private void parseAndroidFile(List<File> fileList, RepeatResponse response) {
+    private ArrayList<RepeatEntity> filterFileContent(List<String> result, String regex, File file) {
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        ArrayList<RepeatEntity> entities = new ArrayList<>();
+        result.forEach(new java.util.function.Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                String[] split = s.split(regex);
+                if (split.length > 0) {
+                    String key = split[0].trim();
+                    String value = split[1].trim();
+                    if (hashMap.get(key) != null) {
+                        System.out.println("有重复的值");
+                        RepeatEntity repeatEntity = new RepeatEntity(key, value, file.getParent(), file.getName());
+                        entities.add(repeatEntity);
+                    } else {
+                        hashMap.put(key, 1);
+                    }
+                }
+            }
+        });
+
+        return entities;
+    }
+
+    private void parseAndroidFile(List<File> fileList, RepeatResponse response, ArrayList<RepeatEntity> entities) {
 
     }
 
@@ -170,53 +205,59 @@ public class DiffRepeatController {
         listView.setCellFactory(new Callback<ListView<RepeatEntity>, ListCell<RepeatEntity>>() {
             @Override
             public ListCell<RepeatEntity> call(ListView<RepeatEntity> param) {
-                ListCell<RepeatEntity> listCell = new ListCell<RepeatEntity>() {
+
+                return new ListCell<RepeatEntity>() {
                     @Override
                     protected void updateItem(RepeatEntity item, boolean empty) {
                         super.updateItem(item, empty);
                         if (item != null) {
+                            HBox hBox = new HBox();
+                            Label filePath = new Label(item.getFilePath());
                             if (item.getFilePath().equals("文件路径")) {
-                                HBox hBox = new HBox();
-                                Label filePath = new Label(item.getFilePath());
-                                filePath.setPrefWidth(200);
+                                filePath.setPrefWidth(300);
                                 filePath.setPrefHeight(50);
                                 Label fileName = new Label(item.getFileName());
                                 fileName.setPrefWidth(150);
                                 fileName.setPrefHeight(50);
                                 Label key = new Label(item.getKey());
-                                key.setPrefWidth(300);
+                                key.setPrefWidth(200);
                                 key.setPrefHeight(50);
                                 Label value = new Label(item.getValue());
                                 value.setPrefWidth(450);
                                 value.setPrefHeight(50);
                                 hBox.getChildren().addAll(filePath, fileName, key, value);
-                                this.setGraphic(hBox);
                             } else {
-                                HBox hBox = new HBox();
-                                Label filePath = new Label(item.getFilePath());
-                                filePath.setPrefWidth(200);
+                                filePath.setPrefWidth(300);
                                 filePath.setPrefHeight(80);
                                 Label fileName = new Label(item.getFileName());
                                 fileName.setPrefWidth(150);
                                 fileName.setPrefHeight(80);
                                 Label key = new Label(item.getKey());
-                                key.setPrefWidth(300);
+                                key.setPrefWidth(200);
                                 key.setPrefHeight(80);
                                 Label value = new Label(item.getValue());
                                 value.setPrefWidth(450);
                                 value.setPrefHeight(80);
                                 hBox.getChildren().addAll(filePath, fileName, key, value);
-                                this.setGraphic(hBox);
                             }
+                            this.setGraphic(hBox);
                         }
                     }
                 };
-
-
-                return listCell;
             }
+        });
 
+        listView.setOnMouseClicked(event -> {
+            int clickCount = event.getClickCount();
+            System.out.println("count" + clickCount);
+            if (clickCount == 2) {
+                RepeatEntity entity = listView.getSelectionModel().getSelectedItem();
+                System.out.println("click" + entity);
+                if (entity.getFilePath() != null) {
 
+                    FileUtils.openDir(entity.getFilePath());
+                }
+            }
         });
     }
 
@@ -232,6 +273,9 @@ public class DiffRepeatController {
 
     @FXML
     public void close(MouseEvent mouseEvent) {
+        if (disposable != null) {
+            disposable.dispose();
+        }
         Event.fireEvent(Objects.requireNonNull(getRepeatStage()), new WindowEvent(getRepeatStage(), WindowEvent.WINDOW_CLOSE_REQUEST));
     }
 

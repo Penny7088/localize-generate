@@ -30,7 +30,6 @@ public final class FileIOUtils {
     private static final String LINE_SEP = System.getProperty("line.separator");
 
 
-
     /**
      * 读取文件到字符串链表中
      *
@@ -38,7 +37,7 @@ public final class FileIOUtils {
      * @return 字符串链表中
      */
     public static List<String> readFile2List(String filePath) {
-        return readFile2List(FileUtils.getFileByPath(filePath), null);
+        return readFile2List(FileUtils.getFileByPath(filePath), null, null);
     }
 
     /**
@@ -49,7 +48,7 @@ public final class FileIOUtils {
      * @return 字符串链表中
      */
     public static List<String> readFile2List(String filePath, String charsetName) {
-        return readFile2List(FileUtils.getFileByPath(filePath), charsetName);
+        return readFile2List(FileUtils.getFileByPath(filePath), charsetName, null);
     }
 
     /**
@@ -59,7 +58,7 @@ public final class FileIOUtils {
      * @return 字符串链表中
      */
     public static List<String> readFile2List(File file) {
-        return readFile2List(file, 0, 0x7FFFFFFF, null);
+        return readFile2List(file, 0, 0x7FFFFFFF, null, null);
     }
 
     /**
@@ -67,10 +66,11 @@ public final class FileIOUtils {
      *
      * @param file        文件
      * @param charsetName 编码格式
+     * @param notes       注释符号
      * @return 字符串链表中
      */
-    public static List<String> readFile2List(File file, String charsetName ) {
-        return readFile2List(file, 0, 0x7FFFFFFF, charsetName);
+    public static List<String> readFile2List(File file, String charsetName, String notes) {
+        return readFile2List(file, 0, 0x7FFFFFFF, charsetName, notes);
     }
 
     /**
@@ -82,7 +82,7 @@ public final class FileIOUtils {
      * @return 字符串链表中
      */
     public static List<String> readFile2List(String filePath, int st, int end) {
-        return readFile2List(FileUtils.getFileByPath(filePath), st, end, null);
+        return readFile2List(FileUtils.getFileByPath(filePath), st, end, null, null);
     }
 
     /**
@@ -95,7 +95,7 @@ public final class FileIOUtils {
      * @return 字符串链表中
      */
     public static List<String> readFile2List(String filePath, int st, int end, String charsetName) {
-        return readFile2List(FileUtils.getFileByPath(filePath), st, end, charsetName);
+        return readFile2List(FileUtils.getFileByPath(filePath), st, end, charsetName, null);
     }
 
     /**
@@ -107,7 +107,7 @@ public final class FileIOUtils {
      * @return 字符串链表中
      */
     public static List<String> readFile2List(File file, int st, int end) {
-        return readFile2List(file, st, end, null);
+        return readFile2List(file, st, end, null, null);
     }
 
     /**
@@ -117,9 +117,10 @@ public final class FileIOUtils {
      * @param st          需要读取的开始行数
      * @param end         需要读取的结束行数
      * @param charsetName 编码格式
+     * @param notes       注释符号
      * @return 字符串链表中
      */
-    public static List<String> readFile2List(File file, int st, int end, String charsetName) {
+    public static List<String> readFile2List(File file, int st, int end, String charsetName, String notes) {
         if (!FileUtils.isFileExists(file)) return null;
         if (st > end) return null;
         BufferedReader reader = null;
@@ -132,9 +133,35 @@ public final class FileIOUtils {
             } else {
                 reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charsetName));
             }
+            boolean hasNotes = false;
             while ((line = reader.readLine()) != null) {
+                if (line.length() == 0) {
+                    continue;
+                }
+                if (notes != null) {
+                    String[] split = notes.split(" ");
+                    System.out.println(split);
+                    String sNotes = split[0];
+                    String eNotes = split[1];
+                    boolean sContains = line.contains(sNotes);
+                    if (sContains) {
+                        hasNotes = true;
+                    }
+                    if (hasNotes) {
+                        boolean eContains = line.contains(eNotes);
+                        if (eContains) {
+                            hasNotes = false;
+                        }
+                        continue;
+                    }
+
+
+                }
+
                 if (curLine > end) break;
-                if (st <= curLine && curLine <= end) list.add(line);
+                if (st <= curLine && curLine <= end) {
+                    list.add(line);
+                }
                 ++curLine;
             }
             return list;

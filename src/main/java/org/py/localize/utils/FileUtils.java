@@ -50,6 +50,17 @@ public class FileUtils {
         }
     }
 
+    public static void openDir(String path) {
+        try {
+            File file = new File(path);
+            if (file.exists() && file.isDirectory()) {
+                java.awt.Desktop.getDesktop().open(file);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * 判断是否是目录
      *

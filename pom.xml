@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.yzr.poi</groupId>
-  <artifactId>localize</artifactId>
-  <version>1.0.0</version>
+    <groupId>org.yzr.poi</groupId>
+    <artifactId>localize</artifactId>
+    <version>1.0.0</version>
     <build>
         <plugins>
             <plugin>
@@ -44,57 +44,63 @@
     </build>
     <packaging>jar</packaging>
 
-  <name>EasyLocalize</name>
-  <url>http://maven.apache.org</url>
+    <name>EasyLocalize</name>
+    <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.poi</groupId>
-        <artifactId>poi-ooxml</artifactId>
-        <version>3.14</version>
-    </dependency>
-      <dependency>
-          <groupId>org.apache.poi</groupId>
-          <artifactId>poi-ooxml</artifactId>
-          <version>3.14</version>
-      </dependency>
-    <dependency>
-      <groupId>org.freemarker</groupId>
-      <artifactId>freemarker</artifactId>
-      <version>2.3.23</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.9.0</version>
-    </dependency>
-      <!-- 修复Mac上 Dock不显示图标bug -->
-    <dependency>
-        <groupId>com.apple</groupId>
-        <artifactId>AppleJavaExtensions</artifactId>
-        <version>1.4</version>
-    </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.23</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <!-- 修复Mac上 Dock不显示图标bug -->
+        <dependency>
+            <groupId>com.apple</groupId>
+            <artifactId>AppleJavaExtensions</artifactId>
+            <version>1.4</version>
+        </dependency>
 
-  <profiles>
-    <profile>
-      <id>localize</id>
-        <build>
-            <finalName>${project.name}</finalName>
-            <plugins>
-            </plugins>
-        </build>
-    </profile>
-  </profiles>
+        <dependency>
+            <groupId>io.reactivex.rxjava2</groupId>
+            <artifactId>rxjava</artifactId>
+            <version>2.2.21</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>localize</id>
+            <build>
+                <finalName>${project.name}</finalName>
+                <plugins>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

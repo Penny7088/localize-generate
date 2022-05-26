@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import org.yzr.poi.view.Button?>
+<?import org.yzr.poi.widget.Button?>
 
 <Pane fx:id="mainPane" prefHeight="300" prefWidth="400" style="-fx-background-color: #008FEB; -fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.yzr.poi.controller.LostController">
     <children>

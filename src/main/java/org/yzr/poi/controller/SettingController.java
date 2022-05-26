@@ -14,7 +14,7 @@ import javafx.stage.WindowEvent;
 import org.yzr.poi.model.ButtonState;
 import org.yzr.poi.utils.Constant;
 import org.yzr.poi.utils.PropertiesManager;
-import org.yzr.poi.view.*;
+import org.yzr.poi.widget.Button;
 
 /**
  * Created by yizhaorong on 2017/3/26.
@@ -26,7 +26,7 @@ public class SettingController extends VBox {
 
     @FXML private VBox box;
 
-    @FXML private org.yzr.poi.view.Button closeButton;
+    @FXML private Button closeButton;
 
 //    @FXML private CheckBox ignoreChinese;
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import org.yzr.poi.widget.Button?>
+
+<FlowPane xmlns="http://javafx.com/javafx"
+          fx:id="repeatBox"
+          prefHeight="764" prefWidth="1215"
+          style="-fx-background-color: #F7F8F8; -fx-background-radius: 5px;"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="org.yzr.poi.controller.DiffRepeatController">
+
+    <Pane prefHeight="140" prefWidth="1215" style="-fx-background-color: #6D89FF">
+        <Label fx:id="label" layoutX="10.0" layoutY="10.0" text="导入文件夹" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="40.0"/>
+            </font>
+        </Label>
+
+        <Label fx:id="filePathLabel" layoutX="10.0" layoutY="80.0" maxWidth="900" style="-fx-font-size: 40px;"
+               textFill="WHITE"/>
+
+        <Button fx:id="closeButton" layoutX="1180" layoutY="5.0" onMouseClicked="#close"
+                style="-fx-background-color: transparent">
+            <graphic>
+                <ImageView>
+                    <Image url="@../images/close_normal.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <Button fx:id="openFileRepeatButton" layoutX="990.0" layoutY="60.0">
+            <graphic>
+                <ImageView>
+                    <Image url="@../images/repeat_import.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <Button fx:id="executeButton" layoutX="1080.0" layoutY="60.0">
+            <graphic>
+                <ImageView>
+                    <Image url="@../images/run.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+    </Pane>
+
+
+    <ListView fx:id="listView" prefHeight="624" prefWidth="1215"/>
+
+</FlowPane>

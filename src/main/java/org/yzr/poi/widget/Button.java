@@ -1,4 +1,4 @@
-package org.yzr.poi.view;
+package org.yzr.poi.widget;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;

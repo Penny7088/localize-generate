@@ -29,11 +29,10 @@ import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import org.yzr.poi.model.CopyWriteContainer;
 import org.yzr.poi.utils.*;
-import org.yzr.poi.view.Button;
+import org.yzr.poi.widget.Button;
 import org.yzr.poi.model.ButtonState;
 
 import java.io.File;
-import java.net.URL;
 import java.util.*;
 
 public class MainController {
@@ -80,6 +79,9 @@ public class MainController {
     @FXML
     private Button showLostButton;
 
+    @FXML
+    private Button repeatButton;
+
     private ObservableList<String> lostList = FXCollections.observableArrayList();
 
     public void init() {
@@ -99,6 +101,10 @@ public class MainController {
 
         closeButton.setImage("/images/close_normal.png", ButtonState.Normal);
         closeButton.setMouseClicked(event -> close());
+
+        repeatButton.setImage("/images/repeat.png", ButtonState.Normal);
+        repeatButton.setImage("/images/repeat_h.png", ButtonState.Highlight);
+        repeatButton.setMouseClicked(event -> jumpToRepeatPage());
 
         openFileButton.setOnAction(event -> {
             File file = FileChooser.getFileFromFileChooser();
@@ -267,6 +273,31 @@ public class MainController {
 
         loading.setLayoutX((maskViewPrefWidth - loadingFitWidth) / 2);
         loading.setLayoutY((maskViewPrefHeight - loadingFitHeight) / 2);
+    }
+
+    private void jumpToRepeatPage() {
+        repeatButton.setSelected(false);
+        if (DiffRepeatController.getRepeatStage() != null) {
+            DiffRepeatController.getRepeatStage().show();
+            DiffRepeatController.getRepeatStage().toFront();
+            return;
+        }
+        try {
+            Stage repeat = new Stage();
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/layout/repeat_stage.fxml"));
+            Parent root = loader.load();
+            DiffRepeatController repeatController = loader.getController();
+            repeatController.init();
+            repeat.initStyle(StageStyle.TRANSPARENT);
+            repeat.setTitle("检测重复key值");
+            repeat.setScene(new Scene(root));
+            repeat.setResizable(false);
+            repeat.getIcons().add(new Image(this.getClass().getResourceAsStream("/images/repeat.png")));
+            repeat.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 

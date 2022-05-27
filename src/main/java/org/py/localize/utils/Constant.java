@@ -40,16 +40,11 @@ public class Constant {
     public static final String French = "法语\n" + "(French)";
     public static final String German = "德语\n" + "(German)";
     public static final String Spanish = "西班牙语\n" + "(Spanish)";
-    public static final String Arabic = "阿拉伯语\n" +
-            "(Arabic)";
-    public static final String Turkish = "土耳其语\n" +
-            "(Turkish)";
-    public static final String Italian = " 意大利语\n" +
+    public static final String Arabic = "阿拉伯语\n" + "(Arabic)";
+    public static final String Turkish = "土耳其语\n" + "(Turkish)";
+    public static final String Italian = "意大利语\n" +
             "(Italian)";
-    public static final String Russian = "俄语\n" +
-            "(Russian)";
-    public static final String Portuguese = "葡萄牙语\n" +
-            "(Portuguese)";
-    public static final String Korean = " 韩语\n" +
-            "(Korean)";
+    public static final String Russian = "俄语\n" + "(Russian)";
+    public static final String Portuguese = "葡萄牙语\n" + "(Portuguese)";
+    public static final String Korean = "韩语\n" + "(Korean)";
 }

@@ -234,15 +234,16 @@ public class ExcelUtils {
                             e.printStackTrace();
                         }
                         int columnIndex = cell.getColumnIndex();
-                        if (columnIndex == 1) {
-                            System.out.println(value);
+                        if (columnIndex == 0) {
                             localize.setDescription(value);
                         }
+
                         if (row.getRowNum() > keyRow && columnIndex - lastColumn > 1 && columnIndex < (keyColumn + langCount)) {
                             for (int i = lastColumn + 1; i < columnIndex; i++) {
                                 localize.putValue("");
                             }
                         }
+
                         lastColumn = columnIndex;
                         if (row.getRowNum() == keyRow && !value.trim().equalsIgnoreCase("") && isLanguageKey(value)) {
                             langCount = columnIndex - keyColumn;
@@ -277,12 +278,7 @@ public class ExcelUtils {
 
     public static void generate(CopyWriteContainer copyWriteContainer, List<CopyWriteContainer> defaultCopyWriteContainers) throws Exception {
         String language = copyWriteContainer.getLanguage();
-//        if (language.equals(Constant.SIMPLIFIED_CHINESE)) {
-//            Boolean ignoreChinese = Boolean.valueOf(PropertiesManager.getProperty(Constant.IGNORE_CHINESE));
-//            if (ignoreChinese) return;
-//        }
-
-        Boolean useDefaultValue = new Boolean(PropertiesManager.getProperty(Constant.USE_DEFAULT_VALUE));
+        boolean useDefaultValue = Boolean.parseBoolean(PropertiesManager.getProperty(Constant.USE_DEFAULT_VALUE));
         if (useDefaultValue) {
             for (String key : copyWriteContainer.getLostCopyWrites()) {
                 String defaultValue = getDefaultValue(key, defaultCopyWriteContainers);
@@ -302,18 +298,18 @@ public class ExcelUtils {
             }
         }
 
-        Boolean iOSIsOpen = new Boolean(PropertiesManager.getProperty(Constant.IOS_SWITCH));
-        if (iOSIsOpen) {
+        boolean iOSIsOpen = Boolean.parseBoolean(PropertiesManager.getProperty(Constant.IOS_SWITCH));
+        if (iOSIsOpen && copyWriteContainer.getCopyWrites().size() > 0) {
             createLocalizeFile(language, Constant.IOS_KEY, copyWriteContainer.getCopyWrites());
         }
 
-        Boolean serverIsOpen = new Boolean(PropertiesManager.getProperty(Constant.SERVER_SWITCH));
+        boolean serverIsOpen = Boolean.parseBoolean(PropertiesManager.getProperty(Constant.SERVER_SWITCH));
         if (serverIsOpen) {
             createLocalizeFile(language, Constant.SERVER_KEY, copyWriteContainer.getCopyWrites());
         }
 
-        Boolean androidIsOpen = new Boolean(PropertiesManager.getProperty(Constant.ANDROID_SWITCH));
-        if (androidIsOpen) {
+        boolean androidIsOpen = Boolean.parseBoolean(PropertiesManager.getProperty(Constant.ANDROID_SWITCH));
+        if (androidIsOpen && copyWriteContainer.getCopyWrites().size() > 0) {
             createLocalizeFile(language, Constant.ANDROID_KEY, copyWriteContainer.getAndroidCopyWrites());
         }
     }
@@ -367,13 +363,13 @@ public class ExcelUtils {
                 } else if (language.equals("zh-TW")) {
                     language = "zh-rTW";
                 } else if (language.equals("id")) {
-                    Boolean fixIdLanguage = Boolean.valueOf(PropertiesManager.getProperty(Constant.FIX_ID_LANGUAGE));
+                    boolean fixIdLanguage = Boolean.parseBoolean(PropertiesManager.getProperty(Constant.FIX_ID_LANGUAGE));
                     if (fixIdLanguage) {
                         language = "in";
                     }
                 }
 
-                Boolean useNewAndroid = new Boolean(PropertiesManager.getProperty(Constant.USE_NEW_ANDROID));
+                boolean useNewAndroid = Boolean.parseBoolean(PropertiesManager.getProperty(Constant.USE_NEW_ANDROID));
                 String values = "values-";
                 if (language.length() < 1) {
                     values = "values";

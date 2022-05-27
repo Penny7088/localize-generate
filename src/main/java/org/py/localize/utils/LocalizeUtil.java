@@ -6,7 +6,7 @@ package org.py.localize.utils;
 public class LocalizeUtil {
 
     public static String filterCountry(String country) {
-        switch (country) {
+        switch (country.trim()) {
             case Constant.ENGLISH:
                 return "en";
             case Constant.SIMPLIFIED_CHINESE_1:

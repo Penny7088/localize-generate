@@ -20,6 +20,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -31,10 +32,9 @@ import org.py.localize.model.RepeatEntity;
 import org.py.localize.widget.Toast;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 去重控制器
@@ -58,7 +58,7 @@ public class DiffRepeatController {
     private ListView<RepeatEntity> listView;
 
     private static final String ios_notes = "/* */";
-    private static final String android_notes = "<-- -->";
+    private static final String android_notes = "<!-- -->";
 
     ObservableList<RepeatEntity> data = FXCollections.observableArrayList(
             new RepeatEntity("KEY", "Value", "文件路径", "文件名称"));
@@ -72,6 +72,7 @@ public class DiffRepeatController {
         mProgress = new Progress(getRepeatStage());
 
         repeatBox.setOnDragDropped(new DragDroppedEvent(filePathLabel));
+        repeatBox.setOnDragOver(new DragOverEvent());
 
         openFileRepeatButton.setOnAction(event -> {
             String dir = FileChooser.getDirChooser();
@@ -118,7 +119,7 @@ public class DiffRepeatController {
                         observableEmitter.onNext(parseIOSFile(ios, response, entities));
                     }
                 } else {
-                    parseAndroidFile(fileList, response, entities);
+                    observableEmitter.onNext(parseAndroidFile(fileList, response, entities));
                 }
 
 
@@ -158,7 +159,7 @@ public class DiffRepeatController {
         fileList.forEach(file -> {
             System.out.println(file.getAbsolutePath());
             List<String> stringList = FileIOUtils.readFile2List(file, "utf-8", ios_notes);
-            ArrayList<RepeatEntity> repeatEntities = filterFileContent(stringList, "=", file);
+            ArrayList<RepeatEntity> repeatEntities = filterFileContent(stringList, "ios", file);
             if (repeatEntities.size() > 0) {
                 System.out.println(repeatEntities);
                 entities.addAll(repeatEntities);
@@ -173,16 +174,38 @@ public class DiffRepeatController {
         return response;
     }
 
-    private ArrayList<RepeatEntity> filterFileContent(List<String> result, String regex, File file) {
+    private ArrayList<RepeatEntity> filterFileContent(List<String> result, String platfrom, File file) {
         HashMap<String, Integer> hashMap = new HashMap<>();
         ArrayList<RepeatEntity> entities = new ArrayList<>();
-        result.forEach(new java.util.function.Consumer<String>() {
-            @Override
-            public void accept(String s) {
-                String[] split = s.split(regex);
-                if (split.length > 0) {
-                    String key = split[0].trim();
-                    String value = split[1].trim();
+        String regex;
+        List<String> ignore = new ArrayList<>();
+        if (platfrom.equals("android")) {
+            regex = "<string name=(.+?)>(.+?)</string>";
+            ignore.add("<resources>");
+            ignore.add("</resources>");
+        } else {
+            regex = "=";
+        }
+
+        result.forEach(s -> {
+
+            if (ignore.size() > 0) {
+                boolean contains = ignore.contains(s);
+                if (contains) {
+                    return;
+                }
+            }
+
+            String[] split = matchLine(s, regex, platfrom);
+            System.out.println("split = " + split);
+
+
+            if (split.length > 0) {
+                String key = split[0];
+                String value = split[1];
+                if (key != null && value != null) {
+                    key = key.trim();
+                    value = value.trim();
                     if (hashMap.get(key) != null) {
                         System.out.println("有重复的值");
                         RepeatEntity repeatEntity = new RepeatEntity(key, value, file.getParent(), file.getName());
@@ -197,8 +220,46 @@ public class DiffRepeatController {
         return entities;
     }
 
-    private void parseAndroidFile(List<File> fileList, RepeatResponse response, ArrayList<RepeatEntity> entities) {
+    private String[] matchLine(String s, String regex, String platform) {
+        String[] result = new String[2];
+        if (platform.equals("ios")) {
+            result = s.split(regex);
+        } else {
+            Pattern compile = Pattern.compile(regex, Pattern.MULTILINE);
+            Matcher matcher = compile.matcher(s);
+            while (matcher.find()) {
+                for (int i = 1; i <= matcher.groupCount(); i++) {
+                    String group = matcher.group(i);
+                    if (!group.isEmpty()) {
+                        if (i == 1) {
+                            result[0] = group;
+                        } else {
+                            result[1] = group;
+                        }
+                    }
+                }
+            }
+        }
+        return result;
+    }
 
+    private RepeatResponse parseAndroidFile(List<File> fileList, RepeatResponse response, ArrayList<RepeatEntity> entities) {
+        fileList.forEach(file -> {
+            System.out.println(file.getAbsolutePath());
+            List<String> stringList = FileIOUtils.readFile2List(file, "utf-8", android_notes);
+            ArrayList<RepeatEntity> repeatEntities = filterFileContent(stringList, "android", file);
+            if (repeatEntities.size() > 0) {
+                System.out.println(repeatEntities);
+                entities.addAll(repeatEntities);
+            }
+        });
+
+        if (entities.size() == 0) {
+            response.setErrorMsg("没有重复的值");
+        }
+        response.setData(entities);
+
+        return response;
     }
 
     private void initListView() {
@@ -310,6 +371,22 @@ public class DiffRepeatController {
 
                 }
             }
+        }
+    }
+
+
+    public static class DragOverEvent implements EventHandler<DragEvent> {
+        public void handle(DragEvent event) {
+            Dragboard dragboard = event.getDragboard();
+            if (dragboard.hasFiles()) {
+                for (int i = 0; i < dragboard.getFiles().size(); i++) {
+                    File file = dragboard.getFiles().get(i);
+                    if (file.isDirectory()) {
+                        event.acceptTransferModes(TransferMode.ANY);
+                    }
+                }
+            }
+
         }
     }
 

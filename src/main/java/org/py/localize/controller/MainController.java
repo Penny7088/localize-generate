@@ -358,7 +358,7 @@ public class MainController {
      * <p>
      * NOTE 文件拖到控件上方事件
      */
-    public class DragOverEvent implements EventHandler<DragEvent> {
+    public static class DragOverEvent implements EventHandler<DragEvent> {
         public void handle(DragEvent event) {
             Dragboard dragboard = event.getDragboard();
             if (dragboard.hasFiles()) {

@@ -24,7 +24,7 @@ public class EasyLocalize extends Application {
         primaryStage.setTitle("Main");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
-        Image icon = new Image(this.getClass().getResourceAsStream("/images/icon.png"));
+        Image icon = new Image(this.getClass().getResourceAsStream("/images/AppIcon-background.png"));
         primaryStage.getIcons().add(icon);
 
         MainController controller = loader.getController();

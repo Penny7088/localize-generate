@@ -1,6 +1,5 @@
 package org.py.localize.widget;
 
-import com.sun.tools.hat.internal.model.Root;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;

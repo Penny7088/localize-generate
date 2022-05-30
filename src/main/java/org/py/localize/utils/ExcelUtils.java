@@ -12,9 +12,14 @@ import com.google.gson.Gson;
 import freemarker.template.Configuration;
 import freemarker.template.Version;
 import freemarker.template.Template;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.py.localize.model.CopyWriteContainer;
 import org.py.localize.model.Localize;
+
+import static org.apache.poi.ss.usermodel.CellType.*;
+import static org.apache.poi.ss.usermodel.CellType._NONE;
 
 /**
  * Created by yizhaorong on 2017/3/28.
@@ -39,8 +44,8 @@ public class ExcelUtils {
         for (Sheet sheet : wb) {
             List<Localize> list = new ArrayList<>();
             boolean started = false;
-            Integer keyColumn = 0;
-            Integer keyRow = 0;
+            Integer keyColumn = 1;
+            Integer keyRow = 1;
             Integer langCount = 0;
             System.out.println(sheet);
             parseExcel(sheet, list, started, keyColumn, keyRow, langCount);
@@ -100,8 +105,10 @@ public class ExcelUtils {
                         androidValue = androidValue.replaceAll("&", "&amp;");
                         androidValue = androidValue.replaceAll("<", "&lt;");
                         androidValue = androidValue.replaceAll("'", "\\\\'");
+                        androidValue = androidValue.replaceAll("@", "s");
                         String replace = key.toLowerCase().replace(" ", "_");
-                        String replace1 = replace.replace("'", "");
+                        String replace2 = replace.replace("%@", "s");
+                        String replace1 = replace2.replace("'", "");
                         androidDataLocalize.setKey(replace1);
                         androidDataLocalize.putValue(androidValue);
                         androidDataLocalize.setDescription(currentLocalize.getDescription().isEmpty() ? "Empty" : currentLocalize.getDescription());
@@ -209,9 +216,31 @@ public class ExcelUtils {
     private static void parseExcel(Sheet sheet, List<Localize> list, boolean started, Integer keyColumn, Integer keyRow, Integer langCount) {
         for (Row row : sheet) {
             Localize localize = new Localize();
-            Integer lastColumn = 0;
-            for (Cell cell : row) {
-                if (!started && cell.getCellType() == Cell.CELL_TYPE_STRING) {
+            int lastColumn = 0;
+            int numberOfCells = row.getPhysicalNumberOfCells();
+
+            if (started && list.size() > 0) { //代表有key
+                List<String> values = list.get(0).getValues();
+                numberOfCells = values.size() + 2;
+            }
+
+            System.out.println("cells index = " + numberOfCells);
+
+            for (int r = 0; r < numberOfCells; r++) {
+                Cell cell = row.getCell(r);
+                System.out.println("cell index = " + r + " keyColumn = " + keyColumn);
+
+                if (cell == null) {
+                    System.out.println("cell is null");
+                    lastColumn = r;
+                    if (r > keyColumn && localize.getKey() != null) {
+                        localize.putValue("");
+                    }
+                    continue;
+                }
+
+
+                if (!started && cell.getCellType() == STRING) {
                     if (Constant.START_KEY.equalsIgnoreCase(cell.getStringCellValue())) {
                         started = true;
                         keyColumn = cell.getColumnIndex();
@@ -220,13 +249,15 @@ public class ExcelUtils {
                         continue;
                     }
                 }
+
                 switch (cell.getCellType()) {
-                    case Cell.CELL_TYPE_BLANK:
-                    case Cell.CELL_TYPE_BOOLEAN:
-                    case Cell.CELL_TYPE_ERROR:
-                    case Cell.CELL_TYPE_FORMULA:
-                    case Cell.CELL_TYPE_NUMERIC:
-                    case Cell.CELL_TYPE_STRING:
+                    case _NONE:
+                    case BOOLEAN:
+                    case ERROR:
+                    case FORMULA:
+                    case NUMERIC:
+                    case STRING:
+                    case BLANK:
                         String value = "";
                         try {
                             value = cell.getStringCellValue();
@@ -234,8 +265,11 @@ public class ExcelUtils {
                             e.printStackTrace();
                         }
                         int columnIndex = cell.getColumnIndex();
+
                         if (columnIndex == 0) {
+                            lastColumn = columnIndex;
                             localize.setDescription(value);
+                            continue;
                         }
 
                         if (row.getRowNum() > keyRow && columnIndex - lastColumn > 1 && columnIndex < (keyColumn + langCount)) {
@@ -252,7 +286,6 @@ public class ExcelUtils {
                         if (Constant.END_KEY.equalsIgnoreCase(value)) {
                             started = false;
                             continue;
-
                         } else if (keyColumn == columnIndex && !value.trim().equalsIgnoreCase("")) {
                             localize.setKey(value);
                         } else if (columnIndex > keyColumn && localize.getKey() != null) {
@@ -266,8 +299,8 @@ public class ExcelUtils {
                     default:
                         break;
                 }
-                // Do something here
             }
+
             if (localize.getKey() != null) {
                 list.add(localize);
             }

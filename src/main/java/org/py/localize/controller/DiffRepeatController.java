@@ -69,7 +69,7 @@ public class DiffRepeatController {
 
     public void init() {
 
-        mProgress = new Progress(getRepeatStage());
+        mProgress = new Progress(StageUtils.getStage("检测重复key值"));
 
         repeatBox.setOnDragDropped(new DragDroppedEvent(filePathLabel));
         repeatBox.setOnDragOver(new DragOverEvent());
@@ -91,14 +91,14 @@ public class DiffRepeatController {
     private void executeFile() {
         String text = filePathLabel.getText();
         if (text == null || text.length() == 0) {
-            Toast.makeText(getRepeatStage(), "文件夹路径为空");
+            Toast.makeText(StageUtils.getStage("检测重复key值"), "文件夹路径为空");
             return;
         }
         // 开始解析文件夹
         mProgress.activateProgressBar();
         if (!FileUtils.isDir(text)) {
             mProgress.cancelProgressBar();
-            Toast.makeText(getRepeatStage(), "当前路径不是文件夹");
+            Toast.makeText(StageUtils.getStage("检测重复key值"), "当前路径不是文件夹");
         }
 
         Observable<RepeatResponse> observable = Observable.create(new ObservableOnSubscribe<RepeatResponse>() {
@@ -134,7 +134,7 @@ public class DiffRepeatController {
                             mProgress.cancelProgressBar();
                             if (repeatResponse.getErrorMsg() != null) {
                                 String message = repeatResponse.getErrorMsg();
-                                Toast.makeText(getRepeatStage(), message);
+                                Toast.makeText(StageUtils.getStage("检测重复key值"), message);
                             } else {
                                 data.addAll(repeatResponse.getData());
                             }
@@ -146,7 +146,7 @@ public class DiffRepeatController {
                         System.out.println(throwable);
                         Platform.runLater(() -> {
                             String message = throwable.getMessage();
-                            Toast.makeText(getRepeatStage(), message);
+                            Toast.makeText(StageUtils.getStage("检测重复key值"), message);
                             mProgress.cancelProgressBar();
                         });
 
@@ -337,18 +337,11 @@ public class DiffRepeatController {
         if (disposable != null) {
             disposable.dispose();
         }
-        Event.fireEvent(Objects.requireNonNull(getRepeatStage()), new WindowEvent(getRepeatStage(), WindowEvent.WINDOW_CLOSE_REQUEST));
+        Stage stage = StageUtils.getStage("检测重复key值");
+        Event.fireEvent(Objects.requireNonNull(stage), new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
     }
 
 
-    public static Stage getRepeatStage() {
-        for (Stage stage : StageHelper.getStages()) {
-            if (stage.getTitle().equals("检测重复key值")) {
-                return stage;
-            }
-        }
-        return null;
-    }
 
 
     private static class DragDroppedEvent implements EventHandler<DragEvent> {

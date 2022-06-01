@@ -31,6 +31,7 @@ import org.py.localize.model.CopyWriteContainer;
 import org.py.localize.utils.*;
 import org.py.localize.widget.Button;
 import org.py.localize.model.ButtonState;
+import org.py.localize.widget.Toast;
 
 import java.io.File;
 import java.util.*;
@@ -204,6 +205,9 @@ public class MainController {
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
+                        Platform.runLater(() -> {
+                            Toast.makeText(StageUtils.getStage("Main"), "生成错误，请检查文档");
+                        });
                     }
                     Platform.runLater(() -> {
                         maskView.setVisible(false);
@@ -252,9 +256,10 @@ public class MainController {
 
     private void jumpToRepeatPage() {
         repeatButton.setSelected(false);
-        if (DiffRepeatController.getRepeatStage() != null) {
-            DiffRepeatController.getRepeatStage().show();
-            DiffRepeatController.getRepeatStage().toFront();
+        Stage stage = StageUtils.getStage("检测重复key值");
+        if (stage != null) {
+            stage.show();
+            stage.toFront();
             return;
         }
         try {

@@ -260,7 +260,7 @@ public class ExcelUtils {
                     case BLANK:
                         String value = "";
                         try {
-                            value = cell.getStringCellValue();
+                            value = cell.getStringCellValue().trim();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

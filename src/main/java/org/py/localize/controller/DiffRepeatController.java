@@ -271,7 +271,7 @@ public class DiffRepeatController {
                     @Override
                     protected void updateItem(RepeatEntity item, boolean empty) {
                         super.updateItem(item, empty);
-                        if (item != null) {
+                        if (item != null && !empty) {
                             HBox hBox = new HBox();
                             Label filePath = new Label(item.getFilePath());
                             if (item.getFilePath().equals("文件路径")) {
@@ -302,6 +302,9 @@ public class DiffRepeatController {
                                 hBox.getChildren().addAll(filePath, fileName, key, value);
                             }
                             this.setGraphic(hBox);
+                        } else if (empty) {
+                            setText(null);
+                            setGraphic(null);
                         }
                     }
                 };
@@ -340,8 +343,6 @@ public class DiffRepeatController {
         Stage stage = StageUtils.getStage("检测重复key值");
         Event.fireEvent(Objects.requireNonNull(stage), new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
     }
-
-
 
 
     private static class DragDroppedEvent implements EventHandler<DragEvent> {

@@ -2,7 +2,7 @@
 <#if (localizable.comment > 0) >
 //${localizable.value}
 <#else>
-//${localizable.description}
+/* ${localizable.description} */
 "${localizable.key}"="${localizable.value}";
 </#if>
 </#list>

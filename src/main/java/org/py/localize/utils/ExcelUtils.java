@@ -68,7 +68,7 @@ public class ExcelUtils {
 
             for (int i = 0; i < languageCount; i++) {
                 String languageKey = localize.getValues().get(i);
-                System.out.println(languageKey);
+                System.out.println("语言 =" + languageKey);
                 // 是文案 Key
                 if (isLanguageKey(languageKey)) {
                     CopyWriteContainer copyWriteContainer = new CopyWriteContainer();
@@ -94,6 +94,11 @@ public class ExcelUtils {
                             }
                             continue;
                         }
+
+                        if (languageKey.equalsIgnoreCase("ar")) {
+                            localValue = localValue.replace("%@", "@%");
+                        }
+
                         localValue = localValue.replaceAll("\n", "");
                         localValue = localValue.replaceAll("\"", "\\\\\"");
                         dataLocalize.setKey(key);
@@ -106,7 +111,9 @@ public class ExcelUtils {
                         androidValue = androidValue.replaceAll("<", "&lt;");
                         androidValue = androidValue.replaceAll("'", "\\\\'");
                         androidValue = androidValue.replaceAll("@", "s");
-                        String replace = key.toLowerCase().replace(" ", "_");
+                        String replace = key.toLowerCase()
+                                .replace(" ", "_")
+                                .replace("/", "_");
                         String replace2 = replace.replace("%@", "s");
                         String replace1 = replace2.replace("'", "");
                         androidDataLocalize.setKey(replace1);

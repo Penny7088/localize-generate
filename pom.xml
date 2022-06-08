@@ -21,9 +21,11 @@
                             <mainClass>org.py.localize.main.EasyLocalize</mainClass>
                             <generateInstaller>true</generateInstaller>
                             <administratorRequired>true</administratorRequired>
+                            <assetsDir>src/main/assets</assetsDir>
+                            <iconFile>src/main/resources/images/AppIcon-background.icns</iconFile>
                             <platform>mac</platform>
                             <macConfig>
-                                <volumeIcon>/Users/mac/IdeaProjects/simpleLocalize-master/appIcon/AppIcon.icns</volumeIcon>
+                                <volumeIcon>src/main/resources/images/AppIcon-background.icns</volumeIcon>
                             </macConfig>
                         </configuration>
 
@@ -68,7 +70,7 @@
     </build>
     <packaging>jar</packaging>
 
-    <name>EasyLocalize</name>
+    <name>PLocalize</name>
     <url>http://maven.apache.org</url>
 
     <properties>

@@ -39,8 +39,6 @@ public class EasyLocalize extends Application {
         root.setOnMouseDragged((MouseEvent event) -> {
             event.consume();
             primaryStage.setX(event.getScreenX() - xOffset);
-
-            //根据自己的需求，做不同的判断
             if (event.getScreenY() - yOffset < 0) {
                 primaryStage.setY(0);
             } else {

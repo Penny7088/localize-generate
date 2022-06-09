@@ -18,17 +18,17 @@
             <!--<Image backgroundLoading="true" requestedHeight="764" requestedWidth="1215" url="@../images/window_bg.png" />-->
             <!--</ImageView>-->
             <Pane prefHeight="164" prefWidth="1215">
-                <ImageView layoutX="30.0" layoutY="20.0" scaleX="0.8" scaleY="0.8">
+                <ImageView layoutX="30.0" layoutY="30.0" scaleX="0.8" scaleY="0.8">
                     <Image backgroundLoading="true" url="@../images/rocket.png"/>
                 </ImageView>
 
-                <Label layoutX="185.0" layoutY="30.0" maxWidth="850" style="-fx-font-size: 40px;" text="一键生成，让工作更高效"
+                <Label layoutX="135.0" layoutY="30.0" maxWidth="850" style="-fx-font-size: 35px;" text="一键生成，让工作更高效"
                        textFill="WHITE"/>
 
-                <Label fx:id="filePathLabel" layoutX="185.0" layoutY="90.0" maxWidth="850" style="-fx-font-size: 40px;"
+                <Label fx:id="filePathLabel" layoutX="135.0" layoutY="90.0" maxWidth="850" style="-fx-font-size: 35px;"
                        text="http://blog.csdn.net/my_yang/article/details/9105593" textFill="WHITE"/>
 
-                <Button fx:id="openFileButton" layoutX="1050.0" layoutY="20.0">
+                <Button fx:id="openFileButton" layoutX="1050.0" layoutY="35.0">
                     <graphic>
                         <ImageView>
                             <Image url="@../images/openFile.png"/>
@@ -39,7 +39,7 @@
 
 
             <!--操作按钮-->
-            <Pane layoutY="164.0" prefHeight="600.0" prefWidth="1215" style="-fx-background-color: #F7F8F8">
+            <Pane layoutY="164.0" prefHeight="600.0" prefWidth="1215" style="-fx-background-color: #F7F8F8;">
                 <Button fx:id="iOSButton" alignment="CENTER" layoutX="60" layoutY="150.0"
                         style="-fx-background-color: transparent;">
                     <graphic>

@@ -42,9 +42,6 @@ public class Button extends javafx.scene.control.Button {
                         String extension = selectedImageName.substring(selectedImageName.lastIndexOf("."), selectedImageName.length());
                         imageName = imageName + "_h" + extension;
                         image = loadImage(imageName);
-                        if (image != null) {
-                            setGraphic(new ImageView(image));
-                        }
                     } else {
                         if (normalImageName == null) {
                             return;
@@ -53,9 +50,9 @@ public class Button extends javafx.scene.control.Button {
                         String extension = normalImageName.substring(normalImageName.lastIndexOf("."), normalImageName.length());
                         imageName = imageName + "_h" + extension;
                         image = loadImage(imageName);
-                        if (image != null) {
-                            setGraphic(new ImageView(image));
-                        }
+                    }
+                    if (image != null) {
+                        setGraphic(new ImageView(image));
                     }
                 } else {
                     setGraphic(new ImageView(image));
@@ -131,16 +128,14 @@ public class Button extends javafx.scene.control.Button {
 
     public void setSelected(boolean selected) {
         this.selected = selected;
+        Image image;
         if (selected) {
-            Image image = loadImage(selectedImageName);
-            if (image != null) {
-                setGraphic(new ImageView(image));
-            }
+            image = loadImage(selectedImageName);
         } else {
-            Image image = loadImage(normalImageName);
-            if (image != null) {
-                setGraphic(new ImageView(image));
-            }
+            image = loadImage(normalImageName);
+        }
+        if (image != null) {
+            setGraphic(new ImageView(image));
         }
 
     }

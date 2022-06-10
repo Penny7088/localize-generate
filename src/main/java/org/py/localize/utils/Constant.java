@@ -19,6 +19,7 @@ public class Constant {
     public static final String COMMENT_KEY = "[comment]";
     public static final String IOS_KEY = "iOS";
     public static final String ANDROID_KEY = "Android";
+    public static final String ANDROID_HEAD_KEY = "android_head_key";
     public static final String SERVER_KEY = "JAVA";
     public static final String IGNORE_ENGLISH_SUFFIX = "ignoreEnglishSuffix";
     public static final String IGNORE_CHINESE = "ignoreChinese";

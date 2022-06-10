@@ -99,7 +99,7 @@ public class ExcelUtils {
                             localValue = localValue.replace("%@", "@%");
                         }
 
-                        localValue = localValue.replaceAll("\n", "");
+                        localValue = localValue.replaceAll("\n", "\\\\n");
                         localValue = localValue.replaceAll("\"", "\\\\\"");
                         dataLocalize.setKey(key);
                         dataLocalize.putValue(localValue);
@@ -110,12 +110,18 @@ public class ExcelUtils {
                         androidValue = androidValue.replaceAll("&", "&amp;");
                         androidValue = androidValue.replaceAll("<", "&lt;");
                         androidValue = androidValue.replaceAll("'", "\\\\'");
-                        androidValue = androidValue.replaceAll("@", "s");
+                        if(languageKey.equalsIgnoreCase("ar")){
+                            androidValue = androidValue.replace("@%", "s%");
+                            androidValue = androidValue.replace("%1$@", "s$1%");
+                            androidValue = androidValue.replace("%2$@", "s$2%");
+                        }else {
+                            androidValue = androidValue.replace("@", "s");
+                        }
                         String replace = key.toLowerCase()
                                 .replace(" ", "_")
+                                .replace("%@", "s")
                                 .replace("/", "_");
-                        String replace2 = replace.replace("%@", "s");
-                        String replace1 = replace2.replace("'", "");
+                        String replace1 = replace.replace("'", "");
                         androidDataLocalize.setKey(replace1);
                         androidDataLocalize.putValue(androidValue);
                         androidDataLocalize.setDescription(currentLocalize.getDescription().isEmpty() ? "Empty" : currentLocalize.getDescription());
@@ -431,7 +437,13 @@ public class ExcelUtils {
             Configuration cfg = new Configuration(new Version(2, 3, 21));
             cfg.setDefaultEncoding("UTF-8");
             cfg.setClassForTemplateLoading(ExcelUtils.class, "/templete");
-            Template template = cfg.getTemplate(code + ".ftl");
+            boolean hasXmlHead = Boolean.parseBoolean(PropertiesManager.getProperty(Constant.ANDROID_HEAD_KEY));
+            Template template;
+            if (code.equalsIgnoreCase(Constant.ANDROID_KEY) && hasXmlHead) {
+                template = cfg.getTemplate(code + "_not_head.ftl");
+            }else {
+                template = cfg.getTemplate(code + ".ftl");
+            }
             // 静态页面要存放的路径
             out = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream(file), "UTF-8"));

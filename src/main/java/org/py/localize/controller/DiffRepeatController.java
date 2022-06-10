@@ -41,6 +41,9 @@ import java.util.regex.Pattern;
  */
 public class DiffRepeatController {
 
+    private double xOffset = 0;
+    private double yOffset = 0;
+
 
     @FXML
     private FlowPane repeatBox;
@@ -61,13 +64,25 @@ public class DiffRepeatController {
     private static final String android_notes = "<!-- -->";
 
     ObservableList<RepeatEntity> data = FXCollections.observableArrayList(
-            new RepeatEntity("KEY", "Value", "文件路径", "文件名称"));
+            new RepeatEntity("KEY", "Value", "文件路径", "文件名称", "文件路径"));
 
 
     private Progress mProgress;
     private Disposable disposable;
 
     public void init() {
+
+        repeatBox.setOnMouseDragged((MouseEvent event) -> {
+            event.consume();
+            Objects.requireNonNull(StageUtils.getStage("检测重复key值")).setX(event.getScreenX() - xOffset);
+
+            //根据自己的需求，做不同的判断
+            if (event.getScreenY() - yOffset < 0) {
+                Objects.requireNonNull(StageUtils.getStage("检测重复key值")).setY(0);
+            } else {
+                Objects.requireNonNull(StageUtils.getStage("检测重复key值")).setY(event.getScreenY() - yOffset);
+            }
+        });
 
         mProgress = new Progress(StageUtils.getStage("检测重复key值"));
 
@@ -89,6 +104,10 @@ public class DiffRepeatController {
     }
 
     private void executeFile() {
+        boolean hasData = data.size() >= 2;
+        if (hasData) {
+            data.remove(1, data.size());
+        }
         String text = filePathLabel.getText();
         if (text == null || text.length() == 0) {
             Toast.makeText(StageUtils.getStage("检测重复key值"), "文件夹路径为空");
@@ -208,7 +227,7 @@ public class DiffRepeatController {
                     value = value.trim();
                     if (hashMap.get(key) != null) {
                         System.out.println("有重复的值");
-                        RepeatEntity repeatEntity = new RepeatEntity(key, value, file.getParent(), file.getName());
+                        RepeatEntity repeatEntity = new RepeatEntity(key, value, file.getParent(), file.getName(), file.getParentFile().getName());
                         entities.add(repeatEntity);
                     } else {
                         hashMap.put(key, 1);
@@ -273,8 +292,8 @@ public class DiffRepeatController {
                         super.updateItem(item, empty);
                         if (item != null && !empty) {
                             HBox hBox = new HBox();
-                            Label filePath = new Label(item.getFilePath());
                             if (item.getFilePath().equals("文件路径")) {
+                                Label filePath = new Label(item.getFilePath());
                                 filePath.setPrefWidth(300);
                                 filePath.setPrefHeight(50);
                                 Label fileName = new Label(item.getFileName());
@@ -288,6 +307,7 @@ public class DiffRepeatController {
                                 value.setPrefHeight(50);
                                 hBox.getChildren().addAll(filePath, fileName, key, value);
                             } else {
+                                Label filePath = new Label(item.getFileParentName());
                                 filePath.setPrefWidth(300);
                                 filePath.setPrefHeight(80);
                                 Label fileName = new Label(item.getFileName());
@@ -316,7 +336,7 @@ public class DiffRepeatController {
             System.out.println("count" + clickCount);
             if (clickCount == 2) {
                 RepeatEntity entity = listView.getSelectionModel().getSelectedItem();
-                System.out.println("click" + entity);
+                System.out.println("click =" + entity);
                 if (entity.getFilePath() != null) {
 
                     FileUtils.openDir(entity.getFilePath());

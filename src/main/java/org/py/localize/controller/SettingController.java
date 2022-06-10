@@ -16,6 +16,8 @@ import org.py.localize.utils.Constant;
 import org.py.localize.utils.PropertiesManager;
 import org.py.localize.widget.Button;
 
+import java.util.Objects;
+
 /**
  * Created by yizhaorong on 2017/3/26.
  */
@@ -24,21 +26,31 @@ public class SettingController extends VBox {
     private double xOffset = 0;
     private double yOffset = 0;
 
-    @FXML private VBox box;
+    @FXML
+    private VBox box;
 
-    @FXML private Button closeButton;
+    @FXML
+    private Button closeButton;
 
 //    @FXML private CheckBox ignoreChinese;
 
-    @FXML private CheckBox ignoreAndroidEnglish;
+    @FXML
+    private CheckBox ignoreAndroidEnglish;
 
-    @FXML private CheckBox fixAndroidIdLanguage;
+    @FXML
+    private CheckBox hasHead;
 
-    @FXML private CheckBox useNewAndroid;
+    @FXML
+    private CheckBox fixAndroidIdLanguage;
 
-    @FXML private CheckBox useDefault;
+    @FXML
+    private CheckBox useNewAndroid;
 
-    @FXML private TextField defaultValue;
+    @FXML
+    private CheckBox useDefault;
+
+    @FXML
+    private TextField defaultValue;
 
     public void init() {
         box.setOnMousePressed((MouseEvent event) -> {
@@ -63,30 +75,25 @@ public class SettingController extends VBox {
 
         closeButton.setImage("/images/close_normal.png", ButtonState.Normal);
 
-        ignoreAndroidEnglish.setOnAction(event -> {
-            PropertiesManager.setProperty(Constant.IGNORE_ENGLISH_SUFFIX, ignoreAndroidEnglish.isSelected() ? Constant.TRUE : Constant.FALSE);
-        });
-        ignoreAndroidEnglish.setSelected(new Boolean(PropertiesManager.getProperty(Constant.IGNORE_ENGLISH_SUFFIX)));
+        ignoreAndroidEnglish.setOnAction(event -> PropertiesManager.setProperty(Constant.IGNORE_ENGLISH_SUFFIX, ignoreAndroidEnglish.isSelected() ? Constant.TRUE : Constant.FALSE));
+        ignoreAndroidEnglish.setSelected(Boolean.parseBoolean(PropertiesManager.getProperty(Constant.IGNORE_ENGLISH_SUFFIX)));
 
-        fixAndroidIdLanguage.setOnAction(event -> {
-            PropertiesManager.setProperty(Constant.FIX_ID_LANGUAGE, fixAndroidIdLanguage.isSelected() ? Constant.TRUE : Constant.FALSE);
-        });
-        fixAndroidIdLanguage.setSelected(new Boolean(PropertiesManager.getProperty(Constant.FIX_ID_LANGUAGE)));
+        fixAndroidIdLanguage.setOnAction(event -> PropertiesManager.setProperty(Constant.FIX_ID_LANGUAGE, fixAndroidIdLanguage.isSelected() ? Constant.TRUE : Constant.FALSE));
+        fixAndroidIdLanguage.setSelected(Boolean.parseBoolean(PropertiesManager.getProperty(Constant.FIX_ID_LANGUAGE)));
 
-        useNewAndroid.setOnAction(event -> {
-            PropertiesManager.setProperty(Constant.USE_NEW_ANDROID, useNewAndroid.isSelected() ? Constant.TRUE : Constant.FALSE);
-        });
-        useNewAndroid.setSelected(new Boolean(PropertiesManager.getProperty(Constant.USE_NEW_ANDROID)));
+        useNewAndroid.setOnAction(event -> PropertiesManager.setProperty(Constant.USE_NEW_ANDROID, useNewAndroid.isSelected() ? Constant.TRUE : Constant.FALSE));
+        useNewAndroid.setSelected(Boolean.parseBoolean(PropertiesManager.getProperty(Constant.USE_NEW_ANDROID)));
 
-        useDefault.setOnAction(event -> {
-            PropertiesManager.setProperty(Constant.USE_DEFAULT_VALUE, useDefault.isSelected() ? Constant.TRUE : Constant.FALSE);
-        });
-        useDefault.setSelected(new Boolean(PropertiesManager.getProperty(Constant.USE_DEFAULT_VALUE)));
+        useDefault.setOnAction(event -> PropertiesManager.setProperty(Constant.USE_DEFAULT_VALUE, useDefault.isSelected() ? Constant.TRUE : Constant.FALSE));
+        useDefault.setSelected(Boolean.parseBoolean(PropertiesManager.getProperty(Constant.USE_DEFAULT_VALUE)));
+
+        hasHead.setOnAction(event -> PropertiesManager.setProperty(Constant.ANDROID_HEAD_KEY, hasHead.isSelected() ? Constant.TRUE : Constant.FALSE));
+        hasHead.setSelected(Boolean.parseBoolean(PropertiesManager.getProperty(Constant.ANDROID_HEAD_KEY)));
     }
 
     @FXML
     protected void close() {
-        Event.fireEvent(getSettingStage(), new WindowEvent(getSettingStage(), WindowEvent.WINDOW_CLOSE_REQUEST));
+        Event.fireEvent(Objects.requireNonNull(getSettingStage()), new WindowEvent(getSettingStage(), WindowEvent.WINDOW_CLOSE_REQUEST));
     }
 
     public static Stage getSettingStage() {

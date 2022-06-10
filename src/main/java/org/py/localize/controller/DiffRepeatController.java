@@ -17,10 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TransferMode;
+import javafx.scene.input.*;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -334,13 +331,16 @@ public class DiffRepeatController {
         listView.setOnMouseClicked(event -> {
             int clickCount = event.getClickCount();
             System.out.println("count" + clickCount);
+            RepeatEntity entity = listView.getSelectionModel().getSelectedItem();
             if (clickCount == 2) {
-                RepeatEntity entity = listView.getSelectionModel().getSelectedItem();
                 System.out.println("click =" + entity);
                 if (entity.getFilePath() != null) {
 
                     FileUtils.openDir(entity.getFilePath());
                 }
+            } else if (clickCount == 1) {
+                ClipboardUtil.copy(entity.getKey().replace("\"",""));
+                Toast.makeText(StageUtils.getStage("检测重复key值"), "已复制");
             }
         });
     }

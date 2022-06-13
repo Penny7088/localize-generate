@@ -1,6 +1,7 @@
 package org.py.localize.utils;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -95,12 +96,16 @@ public class ExcelUtils {
                             continue;
                         }
 
-                        if (languageKey.equalsIgnoreCase("ar")) {
-                            localValue = localValue.replace("%@", "@%");
-                        }
+//                        if (languageKey.equalsIgnoreCase("ar")) {
+//                        }
 
+                        localValue = localValue.replace("@%", "%@");
                         localValue = localValue.replaceAll("\n", "\\\\n");
                         localValue = localValue.replaceAll("\"", "\\\\\"");
+//                        localValue = localValue.replaceAll(Matcher.quoteReplacement("%1$@"), Matcher.quoteReplacement("%1$s"));
+//                        localValue = localValue.replaceAll(Matcher.quoteReplacement("%2$@"), Matcher.quoteReplacement("%2$s"));
+//                        localValue = localValue.replaceAll(Matcher.quoteReplacement("%3$@"), Matcher.quoteReplacement("%3$s"));
+//                        localValue = localValue.replaceAll(Matcher.quoteReplacement("%4$@"), Matcher.quoteReplacement("%4$s"));
                         dataLocalize.setKey(key);
                         dataLocalize.putValue(localValue);
                         dataLocalize.setDescription(currentLocalize.getDescription().isEmpty() ? "Empty" : currentLocalize.getDescription());
@@ -110,11 +115,23 @@ public class ExcelUtils {
                         androidValue = androidValue.replaceAll("&", "&amp;");
                         androidValue = androidValue.replaceAll("<", "&lt;");
                         androidValue = androidValue.replaceAll("'", "\\\\'");
-                        if(languageKey.equalsIgnoreCase("ar")){
-                            androidValue = androidValue.replace("@%", "s%");
-                            androidValue = androidValue.replace("%1$@", "s$1%");
-                            androidValue = androidValue.replace("%2$@", "s$2%");
-                        }else {
+                        androidValue = androidValue.replaceAll("%@", "%s");
+                        androidValue = androidValue.replaceAll(Matcher.quoteReplacement("%1$@"), Matcher.quoteReplacement("%1$s"));
+                        androidValue = androidValue.replaceAll(Matcher.quoteReplacement("%2$@"), Matcher.quoteReplacement("%2$s"));
+                        androidValue = androidValue.replaceAll(Matcher.quoteReplacement("%3$@"), Matcher.quoteReplacement("%3$s"));
+                        androidValue = androidValue.replaceAll(Matcher.quoteReplacement("%4$@"), Matcher.quoteReplacement("%4$s"));
+                        if (languageKey.equalsIgnoreCase("ar")) {
+                            String av = new String(androidValue.getBytes("utf-8"), StandardCharsets.ISO_8859_1);
+                            av = av.replaceAll(Matcher.quoteReplacement("$1%@"), Matcher.quoteReplacement("%1$s"));
+                            av = av.replaceAll(Matcher.quoteReplacement("$2%@"), Matcher.quoteReplacement("%2$s"));
+                            av = av.replaceAll(Matcher.quoteReplacement("$3%@"), Matcher.quoteReplacement("%3$s"));
+                            av = av.replaceAll(Matcher.quoteReplacement("$4%@"), Matcher.quoteReplacement("%4$s"));
+                            av = av.replaceAll(Matcher.quoteReplacement("@%1$"), Matcher.quoteReplacement("%1$s"));
+                            av = av.replaceAll(Matcher.quoteReplacement("@%2$"), Matcher.quoteReplacement("%2$s"));
+                            av = av.replaceAll(Matcher.quoteReplacement("@%3$"), Matcher.quoteReplacement("%3$s"));
+                            av = av.replaceAll(Matcher.quoteReplacement("@%4$"), Matcher.quoteReplacement("%4$s"));
+                            androidValue = new String(av.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+                        } else {
                             androidValue = androidValue.replace("@", "s");
                         }
                         String replace = key.toLowerCase()
@@ -441,7 +458,7 @@ public class ExcelUtils {
             Template template;
             if (code.equalsIgnoreCase(Constant.ANDROID_KEY) && hasXmlHead) {
                 template = cfg.getTemplate(code + "_not_head.ftl");
-            }else {
+            } else {
                 template = cfg.getTemplate(code + ".ftl");
             }
             // 静态页面要存放的路径

@@ -4,7 +4,7 @@
 
     <groupId>org.py.localize</groupId>
     <artifactId>localize</artifactId>
-    <version>1.6.3</version>
+    <version>1.6.4</version>
     <build>
         <plugins>
             <plugin>

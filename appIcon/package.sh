@@ -2,4 +2,4 @@
 export LANG=en_us.UTF-8
 export LC_ALL=zh_CN.UTF-8
 
-javapackager -deploy -native dmg -name PLocalize -BappVersion=1.6.3 -Bicon="./AppIcon.icns" -srcdir . -srcfiles localize-1.6.3-jar-with-dependencies.jar -appclass org.py.localize.main.EasyLocalize -outdir . -outfile localize
+javapackager -deploy -native dmg -name PLocalize -BappVersion=1.6.4 -Bicon="./AppIcon.icns" -srcdir . -srcfiles localize-1.6.4-jar-with-dependencies.jar -appclass org.py.localize.main.EasyLocalize -outdir . -outfile localize

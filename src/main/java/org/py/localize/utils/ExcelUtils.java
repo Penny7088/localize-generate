@@ -117,6 +117,7 @@ public class ExcelUtils {
                         androidValue = androidValue.replaceAll("<", "&lt;");
 //                        androidValue = androidValue.replaceAll("'", "\\\\'");
                         androidValue = androidValue.replaceAll("%@", "%s");
+                        androidValue = androidValue.replaceAll("'", "\\\\'");
                         androidValue = androidValue.replaceAll(Matcher.quoteReplacement("%1$@"), Matcher.quoteReplacement("%1$s"));
                         androidValue = androidValue.replaceAll(Matcher.quoteReplacement("%2$@"), Matcher.quoteReplacement("%2$s"));
                         androidValue = androidValue.replaceAll(Matcher.quoteReplacement("%3$@"), Matcher.quoteReplacement("%3$s"));

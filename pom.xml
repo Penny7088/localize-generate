@@ -4,34 +4,34 @@
 
     <groupId>org.py.localize</groupId>
     <artifactId>localize</artifactId>
-    <version>1.6.7</version>
+    <version>1.6.8</version>
     <build>
         <plugins>
-            <plugin>
-                <groupId>io.github.fvarrui</groupId>
-                <artifactId>javapackager</artifactId>
-                <version>1.6.6</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>package</goal>
-                        </goals>
-                        <configuration>
-                            <mainClass>org.py.localize.main.EasyLocalize</mainClass>
-                            <generateInstaller>true</generateInstaller>
-                            <administratorRequired>true</administratorRequired>
-                            <assetsDir>src/main/assets</assetsDir>
-                            <iconFile>src/main/resources/images/AppIcon-background.icns</iconFile>
-                            <platform>mac</platform>
-                            <macConfig>
-                                <volumeIcon>src/main/resources/images/AppIcon-background.icns</volumeIcon>
-                            </macConfig>
-                        </configuration>
+<!--            <plugin>-->
+<!--                <groupId>io.github.fvarrui</groupId>-->
+<!--                <artifactId>javapackager</artifactId>-->
+<!--                <version>1.6.6</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>package</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <mainClass>org.py.localize.main.EasyLocalize</mainClass>-->
+<!--                            <generateInstaller>true</generateInstaller>-->
+<!--                            <administratorRequired>true</administratorRequired>-->
+<!--                            <assetsDir>src/main/assets</assetsDir>-->
+<!--                            <iconFile>src/main/resources/images/AppIcon-background.icns</iconFile>-->
+<!--                            <platform>mac</platform>-->
+<!--                            <macConfig>-->
+<!--                                <volumeIcon>src/main/resources/images/AppIcon-background.icns</volumeIcon>-->
+<!--                            </macConfig>-->
+<!--                        </configuration>-->
 
-                    </execution>
-                </executions>
-            </plugin>
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

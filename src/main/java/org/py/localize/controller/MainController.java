@@ -136,7 +136,7 @@ public class MainController {
                 PropertiesManager.setProperty(Constant.ANDROID_SWITCH, androidButton.isSelected() ? Constant.FALSE : Constant.TRUE);
             }
         });
-        androidButton.setSelected(!new Boolean(PropertiesManager.getProperty(Constant.ANDROID_SWITCH)));
+        androidButton.setSelected(!Boolean.parseBoolean(PropertiesManager.getProperty(Constant.ANDROID_SWITCH)));
 
         iOSButton.setImage("/images/iOS_normal.png", ButtonState.Normal);
         iOSButton.setImage("/images/iOS_disable.png", ButtonState.Selected);
@@ -146,7 +146,7 @@ public class MainController {
                 PropertiesManager.setProperty(Constant.IOS_SWITCH, iOSButton.isSelected() ? Constant.FALSE : Constant.TRUE);
             }
         });
-        iOSButton.setSelected(!new Boolean(PropertiesManager.getProperty(Constant.IOS_SWITCH)));
+        iOSButton.setSelected(!Boolean.parseBoolean(PropertiesManager.getProperty(Constant.IOS_SWITCH)));
 
         serverButton.setImage("/images/server_normal.png", ButtonState.Normal);
         serverButton.setImage("/images/server_disable.png", ButtonState.Selected);
@@ -156,7 +156,7 @@ public class MainController {
                 PropertiesManager.setProperty(Constant.SERVER_SWITCH, serverButton.isSelected() ? Constant.FALSE : Constant.TRUE);
             }
         });
-        serverButton.setSelected(!new Boolean(PropertiesManager.getProperty(Constant.SERVER_SWITCH)));
+        serverButton.setSelected(!Boolean.parseBoolean(PropertiesManager.getProperty(Constant.SERVER_SWITCH)));
 
         generateButton.setImage("/images/generate.png", ButtonState.Normal);
         generateButton.setMouseClicked((MouseEvent event) -> {

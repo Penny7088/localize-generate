@@ -100,7 +100,7 @@ public class ExcelUtils {
 //                        if (languageKey.equalsIgnoreCase("ar")) {
 //                        }
 
-                        localValue = localValue.replace("@%", "%@");
+//                        localValue = localValue.replace("@%", "%@");
                         localValue = localValue.replaceAll("\n", "\\\\n");
                         localValue = localValue.replaceAll("\"", "\\\\\"");
 //                        localValue = localValue.replaceAll(Matcher.quoteReplacement("%1$@"), Matcher.quoteReplacement("%1$s"));
